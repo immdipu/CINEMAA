@@ -129,20 +129,20 @@ rightarrow.addEventListener('click', nextSlide);
 
 /* MOVIE CLCIKED*/
 
-let cate = ""
 const html2 = function (moviee) {
+
+    let cate = ""
     moviee.genres.forEach(item => {
         cate += `<li class="movie_details_category_ul_li">${item.name}</li>`
     })
-
+    console.log(cate);
     return `<div class="movie_details">
     <img class="movie_details_poster" src="https://image.tmdb.org/t/p/w500/${moviee.poster_path}" alt="title">
     <div class="movie_details_about">
         <h2 class="movie_details_title">${moviee.title}</h2>
         <div class="movie_details_about_category">
             <ul class="movie_details_about_category_ul">
-            <li class="movie_details_category_ul_li">${moviee.genres[0].name}</li>
-            <li class="movie_details_category_ul_li">${moviee.genres[1].name}</li>
+            ${cate}
             </ul>
         </div>
         <div class="date_rating">
