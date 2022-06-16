@@ -15,11 +15,10 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 
-
-<body class="body">
+<body>
     <main class="main">
-        <div class="overlay"></div>
-        <div class="sidenav_container">
+        <div class=" overlay overlay2"></div>
+        <div class="sidenav_container" id="sideNavCon">
             <nav class="sidenav">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#ffff"
                     class="arrow_left bi-arrow-left" viewBox="0 0 16 16">
@@ -35,68 +34,93 @@
                 <div class="menu">
                     <h4 class="menu_title">Menu</h4>
                     <ul class="menu_ul">
-                        <li class="home"> <a class="sidenavlinks" href="./index.html"><svg
-                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-house-fill" viewBox="0 0 16 16">
+
+                        <li class="movie_details_about_category_ul_li" class="home"> <a class="sidenavlinks"
+                                href="./index.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                    fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
                                     <path class="path" fill-rule="evenodd"
                                         d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
                                     <path class="path" fill-rule="evenodd"
                                         d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
                                 </svg><span class="Home_title title_span">Home</span></a>
-                        </li>
-                        <li class="movie"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+                        </li class="movie_details_about_category_ul_li">
+                        <li class="movie_details_about_category_ul_li" class="movie"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-play-fill" viewBox="0 0 16 16">
                                 <path class="path"
                                     d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z" />
-                            </svg> <span class="movie_name title_span">Movies</span></li>
-                        <li class="tv_shows">
+                            </svg> <span class="movie_title title_span">Movies</span></li
+                            class="movie_details_about_category_ul_li">
+                        <li class="movie_details_about_category_ul_li" class="tv_shows">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-tv-fill" viewBox="0 0 16 16">
                                 <path class="path"
                                     d="M2.5 13.5A.5.5 0 0 1 3 13h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zM2 2h12s2 0 2 2v6s0 2-2 2H2s-2 0-2-2V4s0-2 2-2z" />
                             </svg> <span class="tv_shows_title title_span">TV-shows</span>
-                        </li>
-                        <li class="settings"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
+                        </li class="movie_details_about_category_ul_li">
+                        <li class="movie_details_about_category_ul_li" class="settings"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-gear-fill" viewBox="0 0 16 16">
                                 <path class="path"
                                     d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" />
-                            </svg><span class="settings_title title_span">Settings</span></li>
+                            </svg><span class="settings_title title_span">Settings</span></li
+                            class="movie_details_about_category_ul_li">
                     </ul>
                 </div>
             </nav>
         </div>
         <section class="section_one">
-            <div class="nav_paremt_conatainer">
-                <nav class="navContainer">
+            <div class="nav_paremt_conatainer movieDetailnav_paremt_conatainer">
+                <nav class="navContainer movieDetailnavContainer">
                     <input class="search" type="text" placeholder="Search ">
                     <div class="light_darkmode"></div>
                 </nav>
             </div>
-            <section class="section_two">
-                <h3 class="home_header"> Home</h3>
-                <div class="Home_header_container">
-                    <div class="first_box">
-                        <h4 class="about">Discover the movies <br> lighting up the charts in <br> theaters, on
-                            streaming.</h4>
-                        <div class="logo">
-                            <img class="header_logo" src="./resources/logo .jpg" alt="">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-                                stroke-linecap="round" stroke-linejoin="round" class="feather feather-check">
-                                <path d="M20 6L9 17l-5-5"></path>
-                            </svg>
-                            <div class="quality_about">
-                                <h5 class="free">Yes, It's all free</h5>
-                                <div class="quality ">
-                                    <p> HD Quality</p><span class="dot"></span>
-                                    <p>CC</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="second_box">
-                        <h4 class="about">If you like us share <br> our site to your <br> friends.</h4>
-                    </div>
+            <section class="section_two section_two2">
+                <div class="posterbig"></div>
+                <div class="poster_big">
+                    <div class="gradient"></div>
+                    <div class="line"></div>
                 </div>
+
+                <section class="movie_details">
+                    <div class="movie_details">
+                        <img class="movie_details_poster" src="./resources/movie poster.jpg" alt="">
+                        <div class="movie_details_about">
+                            <h2 class="movie_details_title">Fantastic Beasts : The Secrets of Dumbledore</h2>
+                            <div class="movie_details_about_category">
+                                <ul class="movie_details_about_category_ul">
+                                    <li class="movie_details_category_ul_li">Fantasy</li>
+                                    <li class="movie_details_category_ul_li">Adventure</li>
+                                    <li class="movie_details_category_ul_li">Action</li>
+                                </ul>
+                            </div>
+                            <div class="date_rating">
+                                <p class="time">2 hour 22 minutes</p><span class="dot dot2"></span>
+                                <p class="date">2022 6th june</p><span class="dot dot2"></span>
+                                <p class="rating">205<span><svg xmlns="http://www.w3.org/2000/svg" width="10"
+                                            height="10" fill="Yellow" class="star bi-star-fill" viewBox="0 0 16 16">
+                                            <path
+                                                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg></span></p>
+                            </div>
+                            <button class="play_btn"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+                                    fill="currentColor" class="path_btn bi-play-fill" viewBox="0 0 16 16">
+                                    <path class="path_btnn"
+                                        d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z">
+                                    </path>
+                                </svg>Play</button>
+                        </div>
+
+                    </div>
+                </section>
+
+                <section class="section_story">
+
+                </section>
+
+
+
                 <section class="Now_playing_movies_container">
                     <h4 class="Now_playing_movies_container_title">Now playing movies</h4>
 
@@ -132,7 +156,7 @@
         </section>
 
     </main>
-    <script src="./scriptl.js"></script>
+    <script src="./movieDetails.js"></script>
 </body>
 
 </html>
