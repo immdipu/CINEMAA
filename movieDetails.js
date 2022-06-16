@@ -16,6 +16,7 @@ const sectionStory = document.querySelector('.section_story');
 const movieDetailsAboutCategoryUl = document.querySelector('.movie_details_about_category_ul');
 
 
+
 window.addEventListener('scroll', function () {
     let intiCon = posterBBig.getBoundingClientRect();
     if (window.scrollY > intiCon.height - 150) {
@@ -51,8 +52,9 @@ const NowPlaying = async () => {
 
 //<a class="posterlink" href="./movieDetail.html"></a>//
 const NowPlayingfun = (movie) => {
+    let url = "./movieDetail.html?id=" + encodeURIComponent(movie.id);
     return `<div class="Now_playing_movies" >
-    <a class="posterlink" href="#sideNavCon"> <img class="poster" data-id="${movie.id}" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="${movie.title}"></a>
+    <a class="posterlink" href="${url}"> <img class="poster" data-id="${movie.id}" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="${movie.title}"></a>
          <p class="movie_title">${movie.title}</p>
          <div class="date_rating">
              <p class="date">${dateFormatter(movie.release_date)}</p><span class="dot dot2"></span>
@@ -71,8 +73,6 @@ const dateFormatter = function (date) {
     const newDate = currdate.slice(0, 4)
     return newDate;
 }
-
-
 
 
 
@@ -143,7 +143,6 @@ const html2 = function (moviee) {
     moviee.genres.forEach(item => {
         cate += `<li class="movie_details_category_ul_li">${item.name}</li>`
     })
-    console.log(cate);
     return `<div class="movie_details">
     <img class="movie_details_poster" src="https://image.tmdb.org/t/p/w500/${moviee.poster_path}" alt="title">
     <div class="movie_details_about">
@@ -186,6 +185,25 @@ const CurrMovie = async (id) => {
 }
 
 
+
+window.onload = function () {
+    let url = document.location.href;
+    let fetcid = url.slice(url.indexOf('=') + 1)
+    CurrMovie(fetcid).then((dat) => {
+        let htm = ""
+        htm = html2(dat)
+        movieDetails.innerHTML = htm;
+        let BigPoster = Bigposter(dat);
+        posterBBig.innerHTML = BigPoster;
+        sectionStory.textContent = dat.overview;
+    })
+}
+
+
+
+
+
+
 let cath = ""
 
 
@@ -204,6 +222,8 @@ const movieId = function (e) {
 
     }
 }
+
+
 
 NowPlayingMoviesDiv.addEventListener('click', movieId)
 

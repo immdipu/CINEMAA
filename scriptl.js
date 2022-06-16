@@ -38,8 +38,9 @@ const NowPlaying = async () => {
 
 //<a class="posterlink" href="./movieDetail.html"></a>//
 const NowPlayingfun = (movie) => {
+    let url = "./movieDetail.html?id=" + encodeURIComponent(movie.id);
     return `<div class="Now_playing_movies" >
-    <a class="posterlink" href="./movieDetail.html"> <img class="poster" data-id="${movie.id}" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="${movie.title}"></a>
+    <a class="posterlink" href=${url}> <img class="poster" data-id="${movie.id}" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="${movie.title}"></a>
          <p class="movie_title">${movie.title}</p>
          <div class="date_rating">
              <p class="date">${dateFormatter(movie.release_date)}</p><span class="dot dot2"></span>
