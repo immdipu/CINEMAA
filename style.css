@@ -58,6 +58,7 @@ body {
     position: fixed;
     border: solid #383838;
     border-width: 0 1px 0px 0px;
+    height: 100%;
 
 
 }
@@ -188,6 +189,7 @@ body.minimize_siderbar .sidenav {
     width: 14rem;
     transition-duration: 0.2s;
     transition-timing-function: linear;
+    height: 100%;
 }
 
 body.minimize_siderbar .sidenav_container {
@@ -251,6 +253,7 @@ body.minimize_siderbar .light_darkmode {
 
 body.minimize_siderbar .navContainer {
     left: 225px;
+
 }
 
 
@@ -317,7 +320,7 @@ body.minimize_siderbar .navContainer {
 .navContainer input {
     background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56.966 56.966' fill='%23717790c7'%3E%3Cpath d='M55.146 51.887 41.588 37.786A22.926 22.926 0 0 0 46.984 23c0-12.682-10.318-23-23-23s-23 10.318-23 23 10.318 23 23 23c4.761 0 9.298-1.436 13.177-4.162l13.661 14.208c.571.593 1.339.92 2.162.92.779 0 1.518-.297 2.079-.837a3.004 3.004 0 0 0 .083-4.242zM23.984 6c9.374 0 17 7.626 17 17s-7.626 17-17 17-17-7.626-17-17 7.626-17 17-17z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    padding: 0px 4px 1px 14px;
+    padding: 0px 26px 1px 14px;
     height: 36px;
     outline: none;
     border: none;
@@ -794,7 +797,7 @@ body.light .navContainer {
 }
 
 body.light .movieDetailnavContainer {
-    z-index: 3;
+    /* z-index: 3;*/
     background-color: rgba(21, 23, 40, 0);
 }
 
@@ -966,4 +969,191 @@ body.light .play_btn:hover {
 
 .disablemouse {
     opacity: 0;
+}
+
+.hamburgerphone {
+    display: none;
+}
+
+.overlay_side_navabar {
+    display: none;
+}
+
+
+/* screen size 600px*/
+
+@media (max-width:600px) {
+    .second_box {
+        display: none;
+    }
+
+    .first_box {
+        width: 100%;
+    }
+
+    .about {
+        line-height: 1.4;
+        font-size: 20px;
+        color: #ffff;
+    }
+
+    .navContainer {
+        padding: 0px 84px 0px 20px;
+        left: 14px;
+
+    }
+
+
+    .navContainer input {
+        width: 82%;
+    }
+
+    .light_darkmode {
+        right: 7%;
+    }
+
+    .Now_playing_movies {
+        width: 8rem;
+    }
+
+    .date {
+        font-size: 11px;
+        color: #999999;
+    }
+
+    .rating {
+        font-size: 11px;
+    }
+
+    .Now_playing_movies_div {
+        padding: 14px 41px 9px 0px;
+        margin: 13px 35px 30px 13px;
+    }
+
+    .leftarrow {
+        left: -15px;
+        z-index: 1;
+    }
+
+    .sidenav_container {
+        width: 5rem;
+        border: solid #101010c7;
+        border-width: 0px 1px 0px 0px;
+        transition-duration: 0.5s;
+        transition-timing-function: linear;
+        display: none;
+        transition-duration: 0.3s;
+        transition-timing-function: linear;
+    }
+
+
+
+    .section_one {
+        margin-left: 2rem;
+        transition-duration: 0.5s;
+        transition-timing-function: linear;
+    }
+
+    .hamburgerphone {
+        display: block;
+        margin-top: 0rem;
+        cursor: pointer;
+        width: 35px;
+        align-self: center;
+        transition-duration: 0.5s;
+        transition-timing-function: linear;
+        margin-right: 9px;
+    }
+
+    .hamburgerphonedeactive {
+        display: none;
+    }
+
+    .overlay_side_navabar {
+        display: none;
+        width: 100%;
+        position: fixed;
+        background-color: #160e0e80;
+        height: 100%;
+        z-index: 3;
+    }
+
+
+    .sidenav_container_active {
+        display: block;
+        z-index: 3;
+        transition-duration: 0.3s;
+        transition-timing-function: linear;
+    }
+
+
+    .overlay_side_navabar_activate {
+        display: block;
+        transition-duration: 0.3s;
+        transition-timing-function: linear;
+    }
+
+    .Now_playing_movies_container {
+        width: 93vw;
+        position: relative;
+    }
+
+    .movie_details {
+        flex-direction: column;
+
+    }
+
+    .movie_details_poster {
+        width: 9rem;
+        border-radius: 20px;
+        z-index: 1;
+        transform: translateX(-15px) translateY(-8rem);
+        box-shadow: var(--shadow);
+    }
+
+    .movie_details_title {
+        width: 15rem;
+        font-size: 18px;
+        word-break: break-word;
+        word-spacing: 3px;
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    .movie_details_about {
+        z-index: 1;
+        transform: translateX(6px) translateY(-147px);
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .section_one_movieDetail {
+        margin-left: 0;
+    }
+
+    .movieDetailnavContainer {
+        left: 0;
+        z-index: 1;
+    }
+
+    .section_story {
+        width: 91%;
+        color: rgb(169, 169, 169);
+        line-height: 1.08;
+        font-size: 16px;
+        letter-spacing: 0px;
+        word-spacing: 1px;
+        transform: translateY(-93px);
+        margin: 0px 0 0 35px;
+    }
+
+    .Now_playing_movies_container_movieDetail {
+        width: 100vw;
+        margin-left: 14px;
+    }
+
+    .Now_playing_movies_div_movieDetail {
+        margin: 13px 29px 30px 9px;
+    }
+
 }

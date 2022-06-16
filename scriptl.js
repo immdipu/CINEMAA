@@ -1,5 +1,4 @@
 
-
 const arrowLeft = document.querySelector('.arrow_left');
 const hamburger = document.querySelector('.hamburger');
 const NowPlayingMoviesDiv = document.querySelector('.Now_playing_movies_div');
@@ -9,6 +8,12 @@ const lightDarkmode = document.querySelector('.light_darkmode');
 const movieDetails = document.querySelector('.movie_details');
 const sectionStory = document.querySelector('.section_story');
 const posterBig = document.querySelector('.poster_big');
+const hamburgerPhone = document.querySelector('.hamburgerphone');
+const sidenavContainer = document.querySelector('.sidenav_container');
+const overlaySideNavabar = document.querySelector('.overlay_side_navabar');
+const sidenav = document.querySelector('.sidenav');
+
+
 
 
 
@@ -25,6 +30,18 @@ arrowLeft.addEventListener('click', function () {
 hamburger.addEventListener('click', function () {
     document.body.classList.add('minimize_siderbar');
 })
+
+hamburgerPhone.addEventListener('click', function () {
+    sidenavContainer.classList.add('sidenav_container_active');
+    overlaySideNavabar.classList.add('sidenav_container_active');
+})
+overlaySideNavabar.addEventListener('click', function () {
+    sidenavContainer.classList.remove('sidenav_container_active');
+    overlaySideNavabar.classList.remove('sidenav_container_active');
+    document.body.classList.remove('minimize_siderbar');
+})
+
+
 
 const myApi = "6b2dec73b6697866a50cdaef60ccffcb"
 
