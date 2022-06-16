@@ -788,6 +788,10 @@ body.minimize_siderbar .navContainer {
     color: hsl(228, 45%, 44%);
 }
 
+.overlay2 {
+    z-index: -1;
+}
+
 
 
 
