@@ -104,9 +104,13 @@ const gotoSlide = function (slides) {
 
 const nextSlide = function () {
     if (currSlide === maxSlide - 6) {
-        currSlide = 0;
+        /*currSlide = 0;*/
+        rightarrow.classList.add('disablemouse')
+        leftArrow.classList.remove('disablemouse')
     }
     else {
+        rightarrow.classList.remove('disablemouse')
+        leftArrow.classList.remove('disablemouse')
         currSlide++
     }
     gotoSlide(currSlide);
@@ -115,10 +119,15 @@ const nextSlide = function () {
 
 const prevSlide = function () {
     if (currSlide === 0) {
-        currSlide = maxSlide - 6;
+        /* currSlide = maxSlide - 6;*/
+        rightarrow.classList.remove('disablemouse')
+        leftArrow.classList.add('disablemouse')
     }
     else {
+        leftArrow.classList.remove('disablemouse')
+        rightarrow.classList.remove('disablemouse')
         currSlide--;
+
     }
     gotoSlide(currSlide)
 };

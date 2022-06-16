@@ -963,3 +963,7 @@ body.light .play_btn:hover {
 .playLink {
     text-decoration: none;
 }
+
+.disablemouse {
+    opacity: 0;
+}
