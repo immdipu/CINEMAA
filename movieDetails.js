@@ -43,8 +43,21 @@ window.addEventListener("scroll", function () {
     }
 });
 
+
 lightDarkmode.addEventListener("click", function () {
     document.body.classList.toggle("light");
+    /* let themeName = this.dataset.theme;*/
+    let bodyattr = document.body.getAttribute("class").split(" ");
+    let currtheme = localStorage.getItem('currtheme')
+    currtheme = null
+    if (currtheme == null) {
+        currthemeObj = [];
+    }
+    else {
+        currthemeObj = JSON.parse(currtheme)
+    }
+    currthemeObj.push(bodyattr)
+    localStorage.setItem("currtheme", JSON.stringify(currthemeObj));
 });
 
 arrowLeft.addEventListener("click", function () {
@@ -228,5 +241,24 @@ const movieId = function (e) {
 
 NowPlayingMoviesDiv.addEventListener("click", movieId);
 
-/*let myurl = "./movieDetail.html"
-window.location.replace(myurl)*/
+
+function settheme() {
+    let currtheme = localStorage.getItem('currtheme')
+    if (currtheme == null) {
+        currthemeObj = [];
+    }
+    else {
+        currthemeObj = JSON.parse(currtheme)
+    }
+
+    console.log(currthemeObj);
+    if (currthemeObj[0].length === 2) {
+        document.body.classList.add("light");
+    }
+    else {
+        console.log("DarkMode");
+        document.body.classList.remove("light");
+    }
+}
+
+settheme()
