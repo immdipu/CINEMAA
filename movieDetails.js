@@ -130,7 +130,6 @@ rightarrow.addEventListener('click', nextSlide);
 /* MOVIE CLCIKED*/
 
 const html2 = function (moviee) {
-
     let cate = ""
     moviee.genres.forEach(item => {
         cate += `<li class="movie_details_category_ul_li">${item.name}</li>`
@@ -146,7 +145,7 @@ const html2 = function (moviee) {
             </ul>
         </div>
         <div class="date_rating">
-            <p class="time">${moviee.runtime}</p><span class="dot dot2"></span>
+            <p class="time">${moviee.runtime} minutes</p><span class="dot dot2"></span>
             <p class="date">${moviee.release_date}</p><span class="dot dot2"></span>
             <p class="rating">${moviee.vote_average}<span><svg xmlns="http://www.w3.org/2000/svg" width="10"
                         height="10" fill="Yellow" class="star bi-star-fill" viewBox="0 0 16 16">
