@@ -1135,10 +1135,11 @@ body.light .play_btn:hover {
 
     .movie_details_about {
         z-index: 1;
-        transform: translateX(6px) translateY(-147px);
+        transform: translateX(-17px) translateY(-147px);
         display: flex;
         flex-direction: column;
         gap: 1rem;
+        align-items: center;
     }
 
     .section_one_movieDetail {
