@@ -812,7 +812,7 @@ body.light .sidenav {
 }
 
 body.light .pathh {
-    fill: black;
+    fill: rgb(133, 133, 133);
 }
 
 body.light .bi {
@@ -1112,11 +1112,12 @@ body.light .play_btn:hover {
     }
 
     .movie_details_title {
-        width: 15rem;
+        width: 13rem;
         font-size: 18px;
         word-break: break-word;
         word-spacing: 3px;
         color: rgba(255, 255, 255, 0.9);
+        text-align: center;
     }
 
     .movie_details_about {
