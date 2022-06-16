@@ -11,6 +11,8 @@ const hamburgerPhone = document.querySelector(".hamburgerphone");
 const sidenavContainer = document.querySelector(".sidenav_container");
 const overlaySideNavabar = document.querySelector(".overlay_side_navabar");
 const sidenav = document.querySelector(".sidenav");
+const alertMsg = document.querySelector(".alertMsg");
+const okayBtn = document.querySelector(".okaybtn");
 
 lightDarkmode.addEventListener("click", function () {
     document.body.classList.toggle("light");
@@ -41,7 +43,6 @@ const NowPlaying = async () => {
         `https://api.themoviedb.org/3/movie/now_playing?api_key=${myApi}&language=en-US&page=1`
     );
     const data = await res.json();
-    console.log(data);
     const NowPlayingmovies = data.results;
     return NowPlayingmovies;
 };
@@ -161,3 +162,17 @@ const html2 = function (movie) {
 
 </div> `;
 };
+
+const hideAlert = function () {
+    alertMsg.classList.remove('alertactive');
+}
+
+okayBtn.addEventListener('click', hideAlert)
+
+window.onload = function () {
+    alertMsg.classList.add('alertactive');
+    setTimeout(hideAlert, 7000)
+}
+
+
+

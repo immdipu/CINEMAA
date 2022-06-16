@@ -615,6 +615,55 @@ body.minimize_siderbar .navContainer {
     z-index: 1;
 }
 
+.alertMsg {
+    background-color: #ffff;
+    height: fit-content;
+    width: 22rem;
+    position: absolute;
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 26px 22px 25px 31px;
+    left: 31%;
+    top: -74%;
+    border-radius: 12px;
+    transition-duration: 0.4s;
+    transition-timing-function: linear;
+}
+
+.alertMsg_header {
+    font-weight: 700;
+    font-size: 27px;
+}
+
+.alertMsg_para {
+    margin: 1px 0 9px 7px;
+    color: #505050;
+}
+
+.okaybtn {
+    border: none;
+    outline: none;
+    padding: 10px 80px 10px 80px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    border-radius: 11px;
+    width: fit-content;
+    box-shadow: var(--shadow);
+    background-color: #242424;
+    color: #c7c7c7;
+    cursor: pointer;
+}
+
+.okaybtn:hover {
+    color: #ffff;
+    background-color: #414040;
+}
+
+
 
 
 
@@ -1171,4 +1220,76 @@ body.light .play_btn:hover {
         margin: 13px 29px 30px 9px;
     }
 
+    .alertMsg {
+        background-color: #ffff;
+        height: fit-content;
+        width: 19rem;
+        position: absolute;
+        z-index: 4;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        padding: 26px 22px 25px 31px;
+        left: 14%;
+        top: 50%;
+        border-radius: 12px;
+    }
+
+}
+
+@media (max-width:445px) {
+    .alertMsg {
+        padding: 19px 14px 18px 14px;
+        left: 10%;
+        top: 42%;
+    }
+
+    .alertMsg_header {
+        font-weight: 700;
+        font-size: 22px;
+    }
+}
+
+@media (max-width:380px) {
+
+    .alertMsg {
+        padding: 19px 14px 18px 14px;
+        left: 10%;
+        top: 42%;
+        width: 15rem;
+    }
+
+    .alertMsg_para {
+        margin: 0px 0 0px 0px;
+        color: #505050;
+    }
+}
+
+
+.alertMsg {
+    top: -74%;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+}
+
+.alertactive {
+    top: 50%;
+    animation-name: alertms;
+    animation-duration: 0.5s;
+    transition-timing-function: linear;
+}
+
+@keyframes alertms {
+    0% {
+        top: -74%;
+    }
+
+    70% {
+        top: 57%;
+    }
+
+    100% {
+        top: 50%;
+    }
 }
