@@ -68,7 +68,6 @@ function settheme() {
         document.body.classList.add("light");
     }
     else {
-        console.log("DarkMode");
         document.body.classList.remove("light");
     }
 }
