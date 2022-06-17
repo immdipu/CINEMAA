@@ -22,14 +22,7 @@ overlaySideNavabar.addEventListener("click", function () {
     hamburgerPhone.classList.remove("hamburgerphonedeactive");
 });
 
-window.addEventListener("scroll", function () {
-    let intiCon = posterBBig.getBoundingClientRect();
-    if (window.scrollY > intiCon.height - 150) {
-        movieDetailnavContainer.classList.add("bgadd");
-    } else {
-        movieDetailnavContainer.classList.remove("bgadd");
-    }
-});
+
 
 
 arrowLeft.addEventListener("click", function () {
