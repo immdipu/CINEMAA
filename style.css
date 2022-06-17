@@ -1103,6 +1103,8 @@ body.light .play_btn:hover {
         font-size: 11px;
     }
 
+
+
     .Now_playing_movies_div {
         padding: 14px 41px 9px 0px;
         margin: 13px 35px 30px 13px;
@@ -1174,6 +1176,7 @@ body.light .play_btn:hover {
     .Now_playing_movies_container {
         width: 93vw;
         position: relative;
+        margin: 0px 0 0 9px;
     }
 
     .movie_details {
