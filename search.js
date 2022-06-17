@@ -6,6 +6,7 @@ const hamburger = document.querySelector(".hamburger");
 const overlaySideNavabar = document.querySelector(".overlay_side_navabar");
 const lightDarkmode = document.querySelector(".light_darkmode");
 const arrowLeft = document.querySelector(".arrow_left");
+const sidenavChildContainer = document.querySelector(".sidenav_child_container");
 
 
 hamburgerPhone.addEventListener("click", function () {
