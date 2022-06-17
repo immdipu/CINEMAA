@@ -13,6 +13,7 @@ const overlaySideNavabar = document.querySelector(".overlay_side_navabar");
 const sidenav = document.querySelector(".sidenav");
 const alertMsg = document.querySelector(".alertMsg");
 const okayBtn = document.querySelector(".okaybtn");
+const searchbox = document.querySelector(".search");
 
 lightDarkmode.addEventListener("click", function () {
 
@@ -199,11 +200,6 @@ rightarrow.addEventListener("click", nextSlide);
 
 
 
-
-
-
-
-
 //  ALERT MESSAGE AT THE BEGINING//
 const hideAlert = function () {
     alertMsg.classList.remove('alertactive');
@@ -215,6 +211,10 @@ window.onload = function () {
     alertMsg.classList.add('alertactive');
     setTimeout(hideAlert, 7000)
 }
+
+searchbox.addEventListener('click', function () {
+    location.replace("./search.html")
+})
 
 
 

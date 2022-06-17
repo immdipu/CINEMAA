@@ -5,7 +5,6 @@ const movieDetailnavContainer = document.querySelector(
 const gradient = document.querySelector(".gradient");
 const posterBigImg = document.querySelector(".poster_big_img");
 const posterBBig = document.querySelector(".posterbig");
-
 const arrowLeft = document.querySelector(".arrow_left");
 const hamburger = document.querySelector(".hamburger");
 const NowPlayingMoviesDiv = document.querySelector(".Now_playing_movies_div");
@@ -21,11 +20,14 @@ const hamburgerPhone = document.querySelector(".hamburgerphone");
 const sidenavChildContainer = document.querySelector(".sidenav_child_container");
 const overlaySideNavabar = document.querySelector(".overlay_side_navabar");
 const sidenav = document.querySelector(".sidenav");
+const searchbox = document.querySelector(".search");
 
 
 
 
-
+searchbox.addEventListener('click', function () {
+    location.replace("./search.html")
+})
 
 
 
@@ -193,13 +195,6 @@ const gotoSlide = function (slides) {
         (ele, i) => (ele.style.transform = `TranslateX(${122 * (i - slides)}%)`)
     );
 };
-
-
-
-
-
-
-
 
 
 const nextSlide = function () {

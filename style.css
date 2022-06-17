@@ -1107,6 +1107,64 @@ body.light .play_btn:hover {
 }
 
 
+
+
+/* SEARCH CSS*/
+
+.Now_playing_movies_container_search {
+    width: 94vw;
+    position: relative;
+    margin: 0px 0 0 24px;
+    margin-top: 6rem;
+}
+
+.search_result_div {
+    padding: 8px 0px 9px 0px;
+    margin: 13px 35px 30px 0px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(162px, 0fr));
+    justify-content: center;
+    gap: 34px 25px;
+}
+
+
+.arrowsearch {
+    display: none;
+}
+
+.item {
+    width: 10rem;
+    height: 19rem;
+    border-radius: 19px;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+
+}
+
+
+.emptysearch {
+    margin: auto;
+    width: max-content;
+    position: relative;
+    right: 7rem;
+    top: 6rem;
+}
+
+
+.emptysearch h3 {
+
+    letter-spacing: 1px;
+    color: rgb(195 195 195);
+
+}
+
+
+
+
+
+
+
 /* screen size 1000px*/
 
 @media (max-width:1000px) {
@@ -1398,6 +1456,57 @@ body.light .play_btn:hover {
         top: 50%;
         border-radius: 12px;
     }
+
+    .search_result_div {
+        padding: 8px 0px 9px 0px;
+        margin: 13px 35px 30px 0px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(151px, 0fr));
+        justify-content: center;
+        gap: 34px 25px;
+    }
+
+
+    .search_result_div {
+        padding: 8px 0px 9px 0px;
+        margin: 11px 0px 27px 0px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(118px, 0fr));
+        justify-content: center;
+        gap: 0px 11px;
+    }
+
+
+    .item {
+        width: 7rem;
+        border-radius: 19px;
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+    }
+
+    .movie_title_search {
+        color: #ffff;
+        height: 28px;
+        margin: 9px 4px 2px 4px;
+        font-size: 10px;
+        font-weight: 500;
+        white-space: normal;
+    }
+
+    .date_search {
+        font-size: 9px;
+    }
+
+
+    .rating_search {
+        font-size: 9px;
+    }
+
+    .category_search {
+        font-size: 6px;
+    }
+
 
 }
 
