@@ -250,8 +250,6 @@ function settheme() {
     else {
         currthemeObj = JSON.parse(currtheme)
     }
-
-    console.log(currthemeObj);
     if (currthemeObj[0].length === 2) {
         document.body.classList.add("light");
     }

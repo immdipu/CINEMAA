@@ -39,10 +39,6 @@ body {
 
 .sidenav_container {
     width: 5rem;
-    border: solid #101010c7;
-    border-width: 0px 1px 0px 0px;
-    transition-duration: 0.5s;
-    transition-timing-function: linear;
 
 }
 
@@ -52,13 +48,14 @@ body {
     display: flex;
     flex-direction: column;
     background-color: #151728;
-    transition-duration: 0.2s;
-    transition-timing-function: linear;
     overflow: hidden;
     position: fixed;
-    border: solid #383838;
+    border: solid #5e595947;
     border-width: 0 1px 0px 0px;
     height: 100%;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out;
+    z-index: 2;
 
 
 }
@@ -232,7 +229,7 @@ body.minimize_siderbar .menu {
 }
 
 body.minimize_siderbar .section_one {
-    margin-left: 16rem;
+    margin-left: 1rem;
     transition-duration: 0.2s;
     transition-timing-function: linear;
 
@@ -259,21 +256,11 @@ body.minimize_siderbar .navContainer {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 .section_one {
-    margin-left: 6rem;
-    transition-duration: 0.5s;
+    margin-left: 2rem;
+    transition-duration: 0.3s;
     transition-timing-function: linear;
+    overflow: hidden;
 
 
 }
@@ -286,18 +273,7 @@ body.minimize_siderbar .navContainer {
     transition-timing-function: linear;
 }
 
-/*
-    display: flex;
-    background-color: #151728c2;
-    height: 5rem;
-    align-items: center;
-    padding: 0px 146px 0 0;
-    justify-content: space-between;
-    position: fixed;
-    width: -webkit-fill-available;
-    z-index: 2;
 
-}*/
 .navContainer {
     Display: flex;
     background-color: #151728c2;
@@ -310,9 +286,8 @@ body.minimize_siderbar .navContainer {
     z-index: 2;
     left: 81px;
     margin: 0 0 0 0px;
-    transition-duration: 0.8s;
-    transition-timing-function: linear;
-
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out;
 }
 
 
@@ -480,8 +455,9 @@ body.minimize_siderbar .navContainer {
 /* Now playing movies container*/
 
 .Now_playing_movies_container {
-    width: 90vw;
+    width: 89vw;
     position: relative;
+    margin: 0px 0 0 24px;
 }
 
 .Now_playing_movies_container_title {
@@ -854,8 +830,6 @@ body.light .nav_paremt_conatainer {
 
 body.light .navContainer {
     background-color: #ffffffd6;
-    transition-duration: 0.6s;
-    transition-timing-function: linear;
 }
 
 body.light .movieDetailnavContainer {
@@ -1040,6 +1014,48 @@ body.light .play_btn:hover {
 .overlay_side_navabar {
     display: none;
 }
+
+
+/* screen size 1000px*/
+
+@media (max-width:1000px) {
+    body.minimize_siderbar .section_one {
+        margin-left: 2rem;
+        transition-duration: 0.2s;
+        transition-timing-function: linear;
+    }
+}
+
+@media (max-width:800px) {
+    body.minimize_siderbar .section_one {
+        margin-left: 5rem;
+        transition-duration: 0.2s;
+        transition-timing-function: linear;
+    }
+
+    .second_box {
+        display: none;
+    }
+
+    .first_box {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* screen size 600px*/
