@@ -1103,11 +1103,16 @@ body.light .play_btn:hover {
         font-size: 11px;
     }
 
-
+    .arrowbtn {
+        display: none;
+    }
 
     .Now_playing_movies_div {
-        padding: 14px 41px 9px 0px;
+        padding: 15px 0px 6px 0px;
         margin: 13px 35px 30px 13px;
+        transform: translateX(-48px);
+        margin: 0;
+        width: 109%;
     }
 
     .leftarrow {
