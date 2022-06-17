@@ -17,7 +17,6 @@ const okayBtn = document.querySelector(".okaybtn");
 lightDarkmode.addEventListener("click", function () {
 
     document.body.classList.toggle("light");
-    /* let themeName = this.dataset.theme;*/
     let bodyattr = document.body.getAttribute("class").split(" ");
     let currtheme = localStorage.getItem('currtheme')
     currtheme = null
@@ -45,7 +44,6 @@ function settheme() {
         document.body.classList.add("light");
     }
     else {
-        console.log("DarkMode");
         document.body.classList.remove("light");
     }
 }
@@ -72,6 +70,14 @@ overlaySideNavabar.addEventListener("click", function () {
     document.body.classList.remove("minimize_siderbar");
 });
 
+
+
+
+
+
+
+
+
 const myApi = "6b2dec73b6697866a50cdaef60ccffcb";
 
 const NowPlaying = async () => {
@@ -83,7 +89,12 @@ const NowPlaying = async () => {
     return NowPlayingmovies;
 };
 
-//<a class="posterlink" href="./movieDetail.html"></a>//
+
+
+
+
+
+
 const NowPlayingfun = (movie) => {
     let url = "./movieDetail.html?id=" + encodeURIComponent(movie.id);
     return `<div class="Now_playing_movies" >
@@ -106,11 +117,30 @@ const NowPlayingfun = (movie) => {
          </div>`;
 };
 
+
+
+
+
+
+
+
+
+// FORMATA DATE
 const dateFormatter = function (date) {
     let currdate = date;
     const newDate = currdate.slice(0, 4);
     return newDate;
 };
+
+
+
+
+
+
+
+
+
+
 
 NowPlaying().then((movies) => {
     movies.forEach((moviee) => {
@@ -124,10 +154,9 @@ NowPlaying().then((movies) => {
     );
 });
 
+
+
 // MOVIES SLIDER
-
-
-
 let currSlide = 0;
 const maxSlide = 20;
 
@@ -137,8 +166,6 @@ const gotoSlide = function (slides) {
         (ele, i) => (ele.style.transform = `TranslateX(${122 * (i - slides)}%)`)
     );
 };
-
-
 
 const nextSlide = function () {
     if (currSlide === maxSlide - 6) {
@@ -152,9 +179,6 @@ const nextSlide = function () {
     }
     gotoSlide(currSlide);
 };
-
-
-
 const prevSlide = function () {
     if (currSlide === 0) {
         rightarrow.classList.remove("disablemouse");
@@ -167,12 +191,20 @@ const prevSlide = function () {
     }
     gotoSlide(currSlide);
 };
-
 leftArrow.addEventListener("click", prevSlide);
 rightarrow.addEventListener("click", nextSlide);
 
 
 
+
+
+
+
+
+
+
+
+//  ALERT MESSAGE AT THE BEGINING//
 const hideAlert = function () {
     alertMsg.classList.remove('alertactive');
 }

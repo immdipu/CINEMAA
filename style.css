@@ -253,6 +253,32 @@ body.minimize_siderbar .navContainer {
 
 }
 
+body.minimize_siderbar .movieDetailnavContainer {
+    left: 223px;
+
+}
+
+
+body.minimize_siderbar .sidenav2 {
+    border-style: solid;
+    border-color: rgb(215 215 215 / 29%);
+    border-width: 0px 1px 0px 0px;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+
+}
+
+body.minimize_siderbar .sidenav_child_container {
+    width: 14rem;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+}
+
+body.minimize_siderbar .section_one_movieDetail {
+    margin-left: 14rem;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+}
 
 
 
@@ -455,7 +481,7 @@ body.minimize_siderbar .navContainer {
 /* Now playing movies container*/
 
 .Now_playing_movies_container {
-    width: 89vw;
+    width: 94vw;
     position: relative;
     margin: 0px 0 0 24px;
 }
@@ -567,27 +593,38 @@ body.minimize_siderbar .navContainer {
 }
 
 .arrowbtn {
+
     position: absolute;
-    bottom: 136px;
-    width: 24px;
-    height: 100px;
-    fill: white;
+    bottom: 154px;
+    width: 23px;
+    height: 24px;
+    fill: rgb(0, 0, 0);
     cursor: pointer;
+    background-color: rgb(219 219 219 / 64%);
+    border-radius: 50%;
+    padding: 10px 13px 11px 10px;
+
 }
 
 .arrowbtn:hover {
-    fill: rgb(180, 180, 180);
+    fill: rgb(129, 125, 125);
 }
 
 .rightarrow {
     float: right;
     margin: 0 7px 0px 0px;
-    right: 0;
-
+    right: 25px;
+    z-index: 2;
 }
 
+.rightarrowindex {
+    right: 61px;
+}
+
+
+
 .leftarrow {
-    left: -31px;
+    left: -1px;
     z-index: 1;
 }
 
@@ -691,6 +728,44 @@ body.minimize_siderbar .navContainer {
 
 }
 
+
+.sidenav_container_movieDetail {
+    position: fixed;
+    top: 0;
+    align-items: center;
+    bottom: 0;
+    z-index: 9999;
+    overflow: hidden;
+    width: initial;
+}
+
+.section_one_movieDetail {
+    margin-left: 5rem;
+}
+
+
+.sidenav_child_container {
+    width: 5rem;
+    height: 100%;
+}
+
+
+
+.sidenav2 {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(21 23 40);
+    border-style: solid;
+    border-color: rgba(94, 89, 89, 0.28);
+    border-width: 0px 1px 0px 0px;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out;
+    z-index: 2;
+    height: 100%;
+}
+
+
+
 .movieDetailnav_paremt_conatainer {
     z-index: 2;
 }
@@ -698,6 +773,8 @@ body.minimize_siderbar .navContainer {
 .movieDetailnavContainer {
     z-index: 3;
     background-color: rgb(21 23 40 / 0%);
+
+    left: 80px;
 }
 
 .bgadd {
@@ -745,6 +822,8 @@ body.minimize_siderbar .navContainer {
     display: flex;
     gap: 1rem;
     font-size: 13px;
+    flex-wrap: wrap;
+    width: 85%;
 
 }
 
@@ -802,6 +881,7 @@ body.minimize_siderbar .navContainer {
     letter-spacing: 0px;
     word-spacing: 1px;
     transform: translateY(-40px);
+    margin-left: 5rem;
 }
 
 .attribution {
@@ -844,6 +924,10 @@ body.light .bgadd {
 
 
 body.light .sidenav {
+    background-color: #EEEEEE;
+}
+
+body.light .sidenav2 {
     background-color: #EEEEEE;
 }
 
@@ -927,7 +1011,8 @@ body.light .arrowbtn {
 }
 
 body.light .arrowbtn:hover {
-    fill: rgb(168, 168, 168);
+    fill: rgb(196, 196, 196);
+    background-color: rgba(145, 145, 145, 0.562);
 }
 
 body.light .navContainer input {
@@ -990,6 +1075,12 @@ body.light .play_btn:hover {
 
 }
 
+
+
+
+
+
+
 .sidenavlinks {
     display: flex;
     align-items: center;
@@ -1026,11 +1117,34 @@ body.light .play_btn:hover {
     }
 }
 
+
+@media (max-width:890px) {
+
+
+    .movie_details_title {
+        width: 24rem;
+        font-size: 25px;
+        word-break: break-word;
+        word-spacing: 3px;
+        color: #ffffffe6;
+    }
+}
+
+
+
+
 @media (max-width:800px) {
     body.minimize_siderbar .section_one {
         margin-left: 5rem;
         transition-duration: 0.2s;
         transition-timing-function: linear;
+    }
+
+    .movie_details_title {
+
+        width: 19rem;
+        font-size: 21px;
+
     }
 
     .second_box {
@@ -1131,6 +1245,16 @@ body.light .play_btn:hover {
         transition-timing-function: linear;
     }
 
+    .sidenav_child_container {
+        width: 5rem;
+        border: solid #101010c7;
+        border-width: 0px 1px 0px 0px;
+        transition-duration: 0.5s;
+        transition-timing-function: linear;
+        display: none;
+        transition-duration: 0.3s;
+        transition-timing-function: linear;
+    }
 
 
     .section_one {
@@ -1215,6 +1339,20 @@ body.light .play_btn:hover {
         align-items: center;
     }
 
+    .movie_details_about_category_ul {
+        display: flex;
+        font-size: 13px;
+        flex-wrap: inherit;
+        width: 91%;
+        margin-left: 33px;
+
+    }
+
+    .movie_details_category_ul_li {
+
+        font-size: x-small;
+    }
+
     .section_one_movieDetail {
         margin-left: 0;
     }
@@ -1232,6 +1370,7 @@ body.light .play_btn:hover {
         letter-spacing: 0px;
         word-spacing: 1px;
         transform: translateY(-93px);
+        margin-left: 0;
         margin: 0px 0 0 35px;
     }
 

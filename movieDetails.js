@@ -18,17 +18,26 @@ const movieDetailsAboutCategoryUl = document.querySelector(
     ".movie_details_about_category_ul"
 );
 const hamburgerPhone = document.querySelector(".hamburgerphone");
-const sidenavContainer = document.querySelector(".sidenav_container");
+const sidenavChildContainer = document.querySelector(".sidenav_child_container");
 const overlaySideNavabar = document.querySelector(".overlay_side_navabar");
 const sidenav = document.querySelector(".sidenav");
 
+
+
+
+
+
+
+
+
+
 hamburgerPhone.addEventListener("click", function () {
-    sidenavContainer.classList.add("sidenav_container_active");
+    sidenavChildContainer.classList.add("sidenav_container_active");
     overlaySideNavabar.classList.add("sidenav_container_active");
     hamburgerPhone.classList.add("hamburgerphonedeactive");
 });
 overlaySideNavabar.addEventListener("click", function () {
-    sidenavContainer.classList.remove("sidenav_container_active");
+    sidenavChildContainer.classList.remove("sidenav_container_active");
     overlaySideNavabar.classList.remove("sidenav_container_active");
     document.body.classList.remove("minimize_siderbar");
     hamburgerPhone.classList.remove("hamburgerphonedeactive");
@@ -44,9 +53,13 @@ window.addEventListener("scroll", function () {
 });
 
 
+
+
+
+
+
 lightDarkmode.addEventListener("click", function () {
     document.body.classList.toggle("light");
-    /* let themeName = this.dataset.theme;*/
     let bodyattr = document.body.getAttribute("class").split(" ");
     let currtheme = localStorage.getItem('currtheme')
     currtheme = null
@@ -60,15 +73,37 @@ lightDarkmode.addEventListener("click", function () {
     localStorage.setItem("currtheme", JSON.stringify(currthemeObj));
 });
 
+
+
+
+
+
+
+
+
 arrowLeft.addEventListener("click", function () {
     document.body.classList.remove("minimize_siderbar");
 });
+
+
+
 
 hamburger.addEventListener("click", function () {
     document.body.classList.add("minimize_siderbar");
 });
 
+
+
+
+
+
+
 const myApi = "6b2dec73b6697866a50cdaef60ccffcb";
+
+
+
+
+
 
 const NowPlaying = async () => {
     const res = await fetch(
@@ -78,6 +113,16 @@ const NowPlaying = async () => {
     const NowPlayingmovies = data.results;
     return NowPlayingmovies;
 };
+
+
+
+
+
+
+
+
+
+
 
 //<a class="posterlink" href="./movieDetail.html"></a>//
 const NowPlayingfun = (movie) => {
@@ -102,11 +147,21 @@ const NowPlayingfun = (movie) => {
          </div>`;
 };
 
+
+
+
+
+
 const dateFormatter = function (date) {
     let currdate = date;
     const newDate = currdate.slice(0, 4);
     return newDate;
 };
+
+
+
+
+
 
 NowPlaying().then((movies) => {
     movies.forEach((moviee) => {
@@ -120,6 +175,13 @@ NowPlaying().then((movies) => {
     );
 });
 
+
+
+
+
+
+
+
 // MOVIES SLIDER
 
 let currSlide = 0;
@@ -131,6 +193,14 @@ const gotoSlide = function (slides) {
         (ele, i) => (ele.style.transform = `TranslateX(${122 * (i - slides)}%)`)
     );
 };
+
+
+
+
+
+
+
+
 
 const nextSlide = function () {
     if (currSlide === maxSlide - 6) {
@@ -160,6 +230,19 @@ const prevSlide = function () {
 
 leftArrow.addEventListener("click", prevSlide);
 rightarrow.addEventListener("click", nextSlide);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* MOVIE CLCIKED*/
 
@@ -209,6 +292,15 @@ const CurrMovie = async (id) => {
     return data;
 };
 
+
+
+
+
+
+
+
+
+
 window.onload = function () {
     let url = document.location.href;
     let fetcid = url.slice(url.indexOf("=") + 1);
@@ -222,7 +314,6 @@ window.onload = function () {
     });
 };
 
-let cath = "";
 
 const movieId = function (e) {
     let ele = e.target;
@@ -240,6 +331,17 @@ const movieId = function (e) {
 };
 
 NowPlayingMoviesDiv.addEventListener("click", movieId);
+
+
+
+
+
+
+
+
+
+
+
 
 
 function settheme() {
