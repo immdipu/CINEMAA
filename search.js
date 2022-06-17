@@ -138,3 +138,8 @@ searchBtn.addEventListener('keyup', function () {
         });
     }
 })
+
+window.onload = function () {
+    searchBtn.focus();
+
+}
