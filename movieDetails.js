@@ -8,8 +8,8 @@ const posterBBig = document.querySelector(".posterbig");
 const arrowLeft = document.querySelector(".arrow_left");
 const hamburger = document.querySelector(".hamburger");
 const NowPlayingMoviesDiv = document.querySelector(".Now_playing_movies_div");
-const leftArrow = document.querySelector(".leftarrow");
-const rightarrow = document.querySelector(".rightarrow");
+const leftArrow = document.querySelectorAll(".leftarrow");
+const rightarrow = document.querySelectorAll(".rightarrow");
 const lightDarkmode = document.querySelector(".light_darkmode");
 const movieDetails = document.querySelector(".movie_details");
 const sectionStory = document.querySelector(".section_story");
@@ -21,6 +21,38 @@ const sidenavChildContainer = document.querySelector(".sidenav_child_container")
 const overlaySideNavabar = document.querySelector(".overlay_side_navabar");
 const sidenav = document.querySelector(".sidenav");
 const searchbox = document.querySelector(".search");
+const recommendationMoviesDiv = document.querySelector(".recommendation_movies_div");
+const SimilarMoviesDiv = document.querySelector(".Similar_movies_div");
+
+
+
+
+
+
+let url = document.location.href;
+let fetcid = url.slice(url.indexOf("=") + 1);
+window.onload = function () {
+    CurrMovie(fetcid).then((dat) => {
+        let htm = "";
+        htm = html2(dat);
+        movieDetails.innerHTML = htm;
+        let BigPoster = Bigposter(dat);
+        posterBBig.innerHTML = BigPoster;
+        sectionStory.textContent = dat.overview;
+    });
+
+};
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -193,12 +225,31 @@ const Sidescroll = function (element, direction, speed, distance, step) {
 
 }
 
-leftArrow.addEventListener("click", function () {
-    Sidescroll(NowPlayingMoviesDiv, 'left', 2, 500, 15)
-});
-rightarrow.addEventListener("click", function () {
-    Sidescroll(NowPlayingMoviesDiv, 'right', 2, 500, 15)
-});
+leftArrow.forEach(item => item.addEventListener('click', function () {
+    if (item.parentElement.id == 'nowplayin') {
+        Sidescroll(NowPlayingMoviesDiv, 'left', 2, 500, 15)
+    }
+    if (item.parentElement.id == 'recommenn') {
+        Sidescroll(recommendationMoviesDiv, 'left', 2, 500, 15)
+    }
+    if (item.parentElement.id == 'Similarovie') {
+        Sidescroll(SimilarMoviesDiv, 'left', 2, 500, 15)
+    }
+
+}));
+
+
+rightarrow.forEach(item => item.addEventListener('click', function () {
+    if (item.parentElement.id == 'nowplayin') {
+        Sidescroll(NowPlayingMoviesDiv, 'right', 2, 500, 15)
+    }
+    if (item.parentElement.id == 'recommenn') {
+        Sidescroll(recommendationMoviesDiv, 'right', 2, 500, 15)
+    }
+    if (item.parentElement.id == 'Similarovie') {
+        Sidescroll(SimilarMoviesDiv, 'right', 2, 500, 15)
+    }
+}));
 
 
 
@@ -271,20 +322,119 @@ const CurrMovie = async (id) => {
 
 
 
-
-
-window.onload = function () {
-    let url = document.location.href;
-    let fetcid = url.slice(url.indexOf("=") + 1);
-    CurrMovie(fetcid).then((dat) => {
-        let htm = "";
-        htm = html2(dat);
-        movieDetails.innerHTML = htm;
-        let BigPoster = Bigposter(dat);
-        posterBBig.innerHTML = BigPoster;
-        sectionStory.textContent = dat.overview;
-    });
+const recomMOvie = async (id) => {
+    const res = await fetch(
+        `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${myApi}`
+    );
+    const data = await res.json();
+    const recommendationMovies = data.results;
+    return recommendationMovies;
 };
+
+const SimilarMOvie = async (id) => {
+    const res = await fetch(
+        `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${myApi}`
+    );
+    const data = await res.json();
+    const SimilarMovies = data.results;
+    return SimilarMovies;
+};
+
+
+
+
+
+
+const recommMovieFun = (movie) => {
+    let url = "./movieDetail.html?id=" + encodeURIComponent(movie.id);
+    return `<div class="Now_playing_movies recommenMovies" >
+    <a class="posterlink" href="${url}"> <img class="poster" data-id="${movie.id
+        }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="${movie.title
+        }"></a>
+         <p class="movie_title">${movie.title}</p>
+         <div class="date_rating">
+             <p class="date">${dateFormatter(
+            movie.release_date
+        )}</p><span class="dot dot2"></span>
+             <p class="rating">${movie.vote_average
+        }<span><svg xmlns="http://www.w3.org/2000/svg" width="10"
+                         height="10" fill="Yellow" class="star bi-star-fill" viewBox="0 0 16 16">
+                         <path
+                             d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                     </svg></span></p>
+             <div class="category">Movie</div>
+             </div>
+         </div>`;
+};
+
+
+const simimarMoviefun = (movie) => {
+    let url = "./movieDetail.html?id=" + encodeURIComponent(movie.id);
+    return `<div class="Now_playing_movies similarMovies" >
+    <a class="posterlink" href="${url}"> <img class="poster" data-id="${movie.id
+        }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="${movie.title
+        }"></a>
+         <p class="movie_title">${movie.title}</p>
+         <div class="date_rating">
+             <p class="date">${dateFormatter(
+            movie.release_date
+        )}</p><span class="dot dot2"></span>
+             <p class="rating">${movie.vote_average
+        }<span><svg xmlns="http://www.w3.org/2000/svg" width="10"
+                         height="10" fill="Yellow" class="star bi-star-fill" viewBox="0 0 16 16">
+                         <path
+                             d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                     </svg></span></p>
+             <div class="category">Movie</div>
+             </div>
+         </div>`;
+};
+
+
+
+
+
+recomMOvie(fetcid).then((movies) => {
+    movies.forEach((moviee) => {
+        const htmll = recommMovieFun(moviee);
+        recommendationMoviesDiv.insertAdjacentHTML("beforeend", htmll);
+    });
+
+    const recommenMovies = document.querySelectorAll(".recommenMovies");
+    recommenMovies.forEach(
+        (ele, i) => (ele.style.transform = `TranslateX(${i * 115}%)`)
+    );
+});
+
+
+
+SimilarMOvie(fetcid).then((movies) => {
+    movies.forEach((moviee) => {
+        const htmll = simimarMoviefun(moviee);
+        SimilarMoviesDiv.insertAdjacentHTML("beforeend", htmll);
+    });
+
+    const similarMovies = document.querySelectorAll(".similarMovies");
+    similarMovies.forEach(
+        (ele, i) => (ele.style.transform = `TranslateX(${i * 115}%)`)
+    );
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 const movieId = function (e) {
@@ -303,13 +453,6 @@ const movieId = function (e) {
 };
 
 NowPlayingMoviesDiv.addEventListener("click", movieId);
-
-
-
-
-
-
-
 
 
 

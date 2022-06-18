@@ -22,7 +22,7 @@ const menuulLI = document.querySelectorAll(".menu_ul li");
 
 
 
-menuulLI[0].classList.add('hovered');
+
 
 menuulLI.forEach(item => {
     item.addEventListener('click', function () {
@@ -311,9 +311,17 @@ const hideAlert = function () {
 okayBtn.addEventListener('click', hideAlert)
 
 window.onload = function () {
+    if (document.title.includes('Home')) {
+        menuulLI[0].classList.add('hovered');
+    }
     alertMsg.classList.add('alertactive');
     setTimeout(hideAlert, 2000)
 }
+
+
+
+
+
 
 searchbox.addEventListener('click', function () {
     location.replace("./search.html")
