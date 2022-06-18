@@ -493,7 +493,9 @@ body.minimize_siderbar .section_one_movieDetail {
     font-weight: 500;
 }
 
-.Now_playing_movies_div {
+.Now_playing_movies_div,
+.current_popular_movies_div,
+.Top_rated_movies_div {
     padding: 14px 41px 9px 0px;
     margin: 13px 35px 30px 0px;
     display: flex;
@@ -507,18 +509,36 @@ body.minimize_siderbar .section_one_movieDetail {
 
 }
 
-.Now_playing_movies {
+
+
+
+.Now_playing_movies,
+.current_popular_movies,
+.Top_rated_movies {
     cursor: pointer;
     position: absolute;
     transition-duration: 0.3s;
     transition-timing-function: linear;
 }
 
+
+
 .Now_playing_movies_div::-webkit-scrollbar {
     display: none;
 }
 
-.Now_playing_movies {
+
+.current_popular_movies_div::-webkit-scrollbar {
+    display: none;
+}
+
+.Top_rated_movies_div::-webkit-scrollbar {
+    display: none;
+}
+
+.Now_playing_movies,
+.current_popular_movies,
+.Top_rated_movies {
 
     width: 10rem;
 }
@@ -1262,9 +1282,12 @@ body.light .play_btn:hover {
         right: 7%;
     }
 
-    .Now_playing_movies {
+    .Now_playing_movies,
+    .current_popular_movies,
+    .Top_rated_movies {
         width: 8rem;
     }
+
 
     .date {
         font-size: 11px;
@@ -1279,12 +1302,15 @@ body.light .play_btn:hover {
         display: none;
     }
 
-    .Now_playing_movies_div {
+    .Now_playing_movies_div,
+    .current_popular_movies_div,
+    .Top_rated_movies_div {
         padding: 15px 0px 6px 0px;
         margin: 13px 35px 30px 13px;
-        transform: translateX(-48px);
+        transform: translateX(0px);
         margin: 0;
-        width: 109%;
+        width: 96%;
+        height: 16rem;
     }
 
     .leftarrow {
@@ -1319,6 +1345,7 @@ body.light .play_btn:hover {
         margin-left: 2rem;
         transition-duration: 0.5s;
         transition-timing-function: linear;
+        margin-bottom: 1rem;
     }
 
     .hamburgerphone {

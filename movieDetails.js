@@ -31,8 +31,6 @@ searchbox.addEventListener('click', function () {
 
 
 
-
-
 hamburgerPhone.addEventListener("click", function () {
     sidenavChildContainer.classList.add("sidenav_container_active");
     overlaySideNavabar.classList.add("sidenav_container_active");
@@ -53,10 +51,6 @@ window.addEventListener("scroll", function () {
         movieDetailnavContainer.classList.remove("bgadd");
     }
 });
-
-
-
-
 
 
 
@@ -173,7 +167,7 @@ NowPlaying().then((movies) => {
 
     const NowPlayingMovies = document.querySelectorAll(".Now_playing_movies");
     NowPlayingMovies.forEach(
-        (ele, i) => (ele.style.transform = `TranslateX(${i * 122}%)`)
+        (ele, i) => (ele.style.transform = `TranslateX(${i * 115}%)`)
     );
 });
 
@@ -182,49 +176,29 @@ NowPlaying().then((movies) => {
 
 
 
+const Sidescroll = function (element, direction, speed, distance, step) {
+    scrollAmount = 0
+    let slideTimer = setInterval(function () {
+        if (direction == 'left') {
+            element.scrollLeft -= step;
+        }
+        else {
+            element.scrollLeft += step;
+        }
+        scrollAmount += step;
+        if (scrollAmount >= distance) {
+            window.clearInterval(slideTimer)
+        }
+    }, speed);
 
+}
 
-// MOVIES SLIDER
-
-let currSlide = 0;
-const maxSlide = 20;
-
-const gotoSlide = function (slides) {
-    const NowPlayingMovies = document.querySelectorAll(".Now_playing_movies");
-    NowPlayingMovies.forEach(
-        (ele, i) => (ele.style.transform = `TranslateX(${122 * (i - slides)}%)`)
-    );
-};
-
-
-const nextSlide = function () {
-    if (currSlide === maxSlide - 6) {
-        /*currSlide = 0;*/
-        rightarrow.classList.add("disablemouse");
-        leftArrow.classList.remove("disablemouse");
-    } else {
-        rightarrow.classList.remove("disablemouse");
-        leftArrow.classList.remove("disablemouse");
-        currSlide++;
-    }
-    gotoSlide(currSlide);
-};
-
-const prevSlide = function () {
-    if (currSlide === 0) {
-        /* currSlide = maxSlide - 6;*/
-        rightarrow.classList.remove("disablemouse");
-        leftArrow.classList.add("disablemouse");
-    } else {
-        leftArrow.classList.remove("disablemouse");
-        rightarrow.classList.remove("disablemouse");
-        currSlide--;
-    }
-    gotoSlide(currSlide);
-};
-
-leftArrow.addEventListener("click", prevSlide);
-rightarrow.addEventListener("click", nextSlide);
+leftArrow.addEventListener("click", function () {
+    Sidescroll(NowPlayingMoviesDiv, 'left', 2, 500, 15)
+});
+rightarrow.addEventListener("click", function () {
+    Sidescroll(NowPlayingMoviesDiv, 'right', 2, 500, 15)
+});
 
 
 
