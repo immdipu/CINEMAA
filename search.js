@@ -124,7 +124,6 @@ const dateFormatter = function (date) {
 };
 
 searchBtn.addEventListener('keyup', function () {
-
     if (searchBtn.value != "") {
         let htmll = " "
         searchResultDiv.innerHTML = "";
@@ -145,9 +144,9 @@ searchBtn.addEventListener('keyup', function () {
 
 
 
-
-
 window.onload = function () {
     searchBtn.focus();
 
 }
+
+
