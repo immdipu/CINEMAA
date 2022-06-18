@@ -92,8 +92,6 @@ const searchitem = async (srchquery) => {
 };
 
 
-
-
 const searchfun = (movie) => {
     let url = "./movieDetail.html?id=" + encodeURIComponent(movie.id);
     return `<div class="item" >

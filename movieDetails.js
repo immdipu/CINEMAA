@@ -23,6 +23,27 @@ const sidenav = document.querySelector(".sidenav");
 const searchbox = document.querySelector(".search");
 const recommendationMoviesDiv = document.querySelector(".recommendation_movies_div");
 const SimilarMoviesDiv = document.querySelector(".Similar_movies_div");
+const Casdiv = document.querySelector(".Casdiv");
+
+
+
+
+
+
+const Castfun = (castee) => {
+    let url = "./movieDetail.html?id=" + encodeURIComponent(castee.id);
+    return `<div class="Now_playing_movies castdiv" >
+    <a class="posterlink" href="${url}"> <img class="poster" data-id="${castee.id
+        }" src="https://image.tmdb.org/t/p/w500/${castee.profile_path}" alt="${castee.original_name
+        }"></a>
+        <div class="name_character_container">
+         <p class="movie_title">${castee.original_name}</p>
+         <div class="date_rating casteecharacter" >
+         ${castee.character}
+             </div>
+             </div>
+         </div>`;
+};
 
 
 
@@ -33,12 +54,24 @@ let url = document.location.href;
 let fetcid = url.slice(url.indexOf("=") + 1);
 window.onload = function () {
     CurrMovie(fetcid).then((dat) => {
+        console.log(dat.credits.cast);
         let htm = "";
         htm = html2(dat);
         movieDetails.innerHTML = htm;
         let BigPoster = Bigposter(dat);
         posterBBig.innerHTML = BigPoster;
         sectionStory.textContent = dat.overview;
+        let castarr = dat.credits.cast;
+        castarr.forEach(item => {
+            if (item.profile_path !== null) {
+                const castehtml = Castfun(item);
+                Casdiv.insertAdjacentHTML("beforeend", castehtml);
+            }
+        })
+        const castdiv = document.querySelectorAll(".castdiv");
+        castdiv.forEach(
+            (ele, i) => (ele.style.transform = `TranslateX(${i * 115}%)`)
+        );
     });
 
 };
@@ -179,6 +212,14 @@ const NowPlayingfun = (movie) => {
 
 
 
+
+
+
+
+
+
+
+
 const dateFormatter = function (date) {
     let currdate = date;
     const newDate = currdate.slice(0, 4);
@@ -241,6 +282,9 @@ leftArrow.forEach(item => item.addEventListener('click', function () {
     if (item.parentElement.id == 'Similarovie') {
         Sidescroll(SimilarMoviesDiv, 'left', 2, 500, 15)
     }
+    if (item.parentElement.id == 'cast_con') {
+        Sidescroll(Casdiv, 'left', 2, 500, 15)
+    }
 
 }));
 
@@ -254,6 +298,9 @@ rightarrow.forEach(item => item.addEventListener('click', function () {
     }
     if (item.parentElement.id == 'Similarovie') {
         Sidescroll(SimilarMoviesDiv, 'right', 2, 500, 15)
+    }
+    if (item.parentElement.id == 'cast_con') {
+        Sidescroll(Casdiv, 'right', 2, 500, 15)
     }
 }));
 
@@ -315,8 +362,9 @@ const Bigposter = function (movieee) {
 
 const CurrMovie = async (id) => {
     const res = await fetch(
-        `https://api.themoviedb.org/3/movie/${id}?api_key=${myApi}`
+        `https://api.themoviedb.org/3/movie/${id}?api_key=${myApi}&append_to_response=credits`
     );
+
     const data = await res.json();
     return data;
 };
@@ -324,6 +372,15 @@ const CurrMovie = async (id) => {
 
 
 
+
+/*const castfetch = async (id) => {
+    const res = await fetch(
+        `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${myApi}`
+    );
+    const data = await res.json();
+    const recommendationMovies = data.results;
+    return recommendationMovies;
+};*/
 
 
 
@@ -351,7 +408,7 @@ const SimilarMOvie = async (id) => {
 
 
 const recommMovieFun = (mov) => {
-    averagVoteformat(mov.vote_average)
+
     let url = "./movieDetail.html?id=" + encodeURIComponent(mov.id);
     return `<div class="Now_playing_movies recommenMovies" >
     <a class="posterlink" href="${url}"> <img class="poster" data-id="${mov.id
@@ -423,19 +480,6 @@ SimilarMOvie(fetcid).then((movies) => {
         (ele, i) => (ele.style.transform = `TranslateX(${i * 115}%)`)
     );
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
