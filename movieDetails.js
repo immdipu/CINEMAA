@@ -31,7 +31,7 @@ const Casdiv = document.querySelector(".Casdiv");
 
 
 const Castfun = (castee) => {
-    let url = "./movieDetail.html?id=" + encodeURIComponent(castee.id);
+    let url = "./personDetail.html?id=" + encodeURIComponent(castee.id);
     return `<div class="Now_playing_movies castdiv" >
     <a class="posterlink" href="${url}"> <img class="poster" data-id="${castee.id
         }" src="https://image.tmdb.org/t/p/w500/${castee.profile_path}" alt="${castee.original_name
@@ -54,7 +54,6 @@ let url = document.location.href;
 let fetcid = url.slice(url.indexOf("=") + 1);
 window.onload = function () {
     CurrMovie(fetcid).then((dat) => {
-        console.log(dat.credits.cast);
         let htm = "";
         htm = html2(dat);
         movieDetails.innerHTML = htm;
@@ -215,11 +214,6 @@ const NowPlayingfun = (movie) => {
 
 
 
-
-
-
-
-
 const dateFormatter = function (date) {
     let currdate = date;
     const newDate = currdate.slice(0, 4);
@@ -370,17 +364,6 @@ const CurrMovie = async (id) => {
 };
 
 
-
-
-
-/*const castfetch = async (id) => {
-    const res = await fetch(
-        `https://api.themoviedb.org/3/movie/${id}/recommendations?api_key=${myApi}`
-    );
-    const data = await res.json();
-    const recommendationMovies = data.results;
-    return recommendationMovies;
-};*/
 
 
 

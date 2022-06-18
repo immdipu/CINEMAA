@@ -503,7 +503,8 @@ body.minimize_siderbar .section_one_movieDetail {
 
 .Now_playing_movies,
 .current_popular_movies,
-.Top_rated_movies {
+.Top_rated_movies,
+.person_movies {
     cursor: pointer;
     position: absolute;
     transition-duration: 0.3s;
@@ -530,7 +531,8 @@ body.minimize_siderbar .section_one_movieDetail {
 
 .Now_playing_movies,
 .current_popular_movies,
-.Top_rated_movies {
+.Top_rated_movies,
+.person_movies {
 
     width: 10rem;
 }
@@ -1174,8 +1176,14 @@ body.light .menu ul li.hovered {
 
 }
 
+.pp {
+    width: 19rem;
+    border-radius: 18px;
+}
 
-
+.person_movie_con {
+    margin: 12px 35px 30px 84px;
+}
 
 
 
@@ -1279,7 +1287,8 @@ body.light .menu ul li.hovered {
 
     .Now_playing_movies,
     .current_popular_movies,
-    .Top_rated_movies {
+    .Top_rated_movies,
+    .person_movies {
         width: 8rem;
     }
 
@@ -1537,6 +1546,21 @@ body.light .menu ul li.hovered {
         font-size: 6px;
     }
 
+    .pp {
+        width: 12rem;
+        border-radius: 18px;
+    }
+
+    .personDetail_container {
+        display: flex;
+        gap: 2rem;
+        flex-direction: column;
+    }
+
+    .person_movie_con {
+        margin: 2px 2px 2px 2px;
+    }
+
 
 }
 
@@ -1623,6 +1647,8 @@ body.light .menu ul li.hovered a ::before {
     background: transparent;
     box-shadow: 35px 35px 0 10px #ffff;
     transform: translateX(1px) translateY(-64px);
+    transition-duration: 2s;
+    transition-timing-function: linear;
 }
 
 .menu ul li:hover a ::before,
@@ -1636,6 +1662,8 @@ body.light .menu ul li.hovered a ::before {
     background: transparent;
     box-shadow: 35px 35px 0 10px #151728;
     transform: translateX(1px) translateY(-64px);
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
 }
 
 
@@ -1655,6 +1683,8 @@ body.light .menu ul li.hovered a ::after {
     background: transparent;
     box-shadow: 35px -35px 0 10px #ffff;
     transform: translateX(0px) translateY(31px);
+    transition-duration: 2s;
+    transition-timing-function: linear;
 }
 
 .menu ul li:hover a ::after,
@@ -1669,6 +1699,8 @@ body.light .menu ul li.hovered a ::after {
     background: transparent;
     box-shadow: 35px -35px 0 10px #151728;
     transform: translateX(0px) translateY(31px);
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
 }
 
 
@@ -1683,12 +1715,15 @@ body.light .menu ul li.hovered a ::after {
 
 .menu ul li:hover .path {
     fill: #ffff;
+    transition-duration: 0.6s;
+    transition-timing-function: linear;
 }
 
 .menu ul li.hovered .title_span,
 .menu ul li.hovered .path {
     color: #ffff;
     fill: #ffff;
+
 }
 
 .name_character_container {
@@ -1709,4 +1744,86 @@ body.light .menu ul li.hovered a ::after {
 
 .Casdiv {
     height: 21rem;
+}
+
+.section_two {
+    margin: 20px 50px 19px 55px;
+}
+
+.personDetail_container {
+    display: flex;
+    gap: 2rem;
+
+}
+
+.person_name {
+    color: #ededed;
+    font-size: 26px;
+}
+
+body.light .person_name {
+    color: #000000;
+}
+
+
+.about_Text {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+}
+
+.biography_header {
+    color: #d4d8db;
+    letter-spacing: 1px;
+}
+
+body.light .biography_header {
+    color: #202122;
+}
+
+body.light .biography {
+    color: #424242;
+}
+
+.biography {
+    margin-top: 11px;
+    color: #d5d5d5;
+    line-height: 1.4;
+}
+
+.section_three {
+
+    margin: 20px 50px 19px 68px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+}
+
+.personal_information {
+    color: #f1f0f0;
+    font-size: 25px;
+    letter-spacing: 1px;
+}
+
+body.light .personal_information {
+    color: #343434;
+}
+
+
+
+.birth_place,
+.DoB,
+.pi_header {
+    color: #d5d5d5;
+
+    letter-spacing: 1px;
+
+}
+
+body.light .birth_place,
+body.light .DoB,
+body.light .pi_header {
+    color: #1c1c1c;
 }
