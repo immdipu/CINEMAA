@@ -84,7 +84,7 @@ window.addEventListener("scroll", function () {
     }
 });
 
-
+let currthemeObj
 
 lightDarkmode.addEventListener("click", function () {
     document.body.classList.toggle("light");
@@ -467,7 +467,7 @@ function settheme() {
     else {
         currthemeObj = JSON.parse(currtheme)
     }
-    if (currthemeObj[0].length === 2) {
+    if (currthemeObj.length === 2) {
         document.body.classList.add("light");
     }
     else {

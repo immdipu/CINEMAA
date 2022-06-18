@@ -29,6 +29,7 @@ arrowLeft.addEventListener("click", function () {
     document.body.classList.remove("minimize_siderbar");
 });
 
+let currthemeObj;
 
 lightDarkmode.addEventListener("click", function () {
     document.body.classList.toggle("light");
@@ -58,7 +59,7 @@ function settheme() {
     else {
         currthemeObj = JSON.parse(currtheme)
     }
-    if (currthemeObj[0].length === 2) {
+    if (currthemeObj.length === 2) {
         document.body.classList.add("light");
     }
     else {
@@ -123,6 +124,7 @@ const dateFormatter = function (date) {
 };
 
 searchBtn.addEventListener('keyup', function () {
+
     if (searchBtn.value != "") {
         let htmll = " "
         searchResultDiv.innerHTML = "";
@@ -138,6 +140,12 @@ searchBtn.addEventListener('keyup', function () {
         });
     }
 })
+
+
+
+
+
+
 
 window.onload = function () {
     searchBtn.focus();
