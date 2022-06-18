@@ -16,6 +16,26 @@ const okayBtn = document.querySelector(".okaybtn");
 const searchbox = document.querySelector(".search");
 const currentPopularMoviesDiv = document.querySelector(".current_popular_movies_div");
 const TopRatedMoviesDiv = document.querySelector(".Top_rated_movies_div");
+const menuulLI = document.querySelectorAll(".menu_ul li");
+
+
+
+
+
+menuulLI[0].classList.add('hovered');
+
+menuulLI.forEach(item => {
+    item.addEventListener('click', function () {
+        menuulLI.forEach(i => i.classList.remove('hovered'))
+        item.classList.add('hovered');
+    })
+
+})
+
+
+
+
+
 
 lightDarkmode.addEventListener("click", function () {
 

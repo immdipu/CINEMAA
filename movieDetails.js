@@ -24,10 +24,10 @@ const searchbox = document.querySelector(".search");
 
 
 
-
 searchbox.addEventListener('click', function () {
     location.replace("./search.html")
 })
+
 
 
 
@@ -216,6 +216,9 @@ rightarrow.addEventListener("click", function () {
 /* MOVIE CLCIKED*/
 
 const html2 = function (moviee) {
+    document.title = `${moviee.title + " " + "(" + (dateFormatter(
+        moviee.release_date)) + ")" + " " + "|" + " " + "Cinemaa"}`
+
     let cate = "";
     moviee.genres.forEach((item) => {
         cate += `<li class="movie_details_category_ul_li">${item.name}</li>`;
@@ -325,7 +328,6 @@ function settheme() {
         document.body.classList.add("light");
     }
     else {
-        console.log("DarkMode");
         document.body.classList.remove("light");
     }
 }
