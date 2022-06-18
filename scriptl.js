@@ -34,7 +34,7 @@ menuulLI.forEach(item => {
 
 
 
-
+let currthemeObj;
 
 
 lightDarkmode.addEventListener("click", function () {
@@ -63,7 +63,7 @@ function settheme() {
         currthemeObj = JSON.parse(currtheme)
     }
 
-    if (currthemeObj[0].length === 2) {
+    if (currthemeObj.length === 2) {
         document.body.classList.add("light");
     }
     else {
