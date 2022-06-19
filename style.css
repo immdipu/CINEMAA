@@ -1185,6 +1185,10 @@ body.light .menu ul li.hovered {
     margin: 12px 35px 30px 84px;
 }
 
+.section_twoo {
+    margin: 20px 50px 19px 55px;
+}
+
 
 
 
@@ -1751,9 +1755,7 @@ body.light .menu ul li.hovered a ::after {
     height: 21rem;
 }
 
-.section_twoo {
-    margin: 20px 50px 19px 55px;
-}
+
 
 .personDetail_container {
     display: flex;
