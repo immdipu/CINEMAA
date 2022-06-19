@@ -1562,6 +1562,11 @@ body.light .menu ul li.hovered {
     }
 
 
+    .section_twoo {
+        margin: 20px 15px 22px 29px;
+    }
+
+
 }
 
 @media (max-width:445px) {
