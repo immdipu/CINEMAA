@@ -1667,8 +1667,7 @@ body.light .menu ul li.hovered a ::before {
     background: transparent;
     box-shadow: 35px 35px 0 10px #ffff;
     transform: translateX(1px) translateY(-64px);
-    transition-timing-function: linear;
-    transition-duration: 0.2s;
+
 }
 
 .menu ul li:hover a ::before,
@@ -1682,8 +1681,7 @@ body.light .menu ul li.hovered a ::before {
     background: transparent;
     box-shadow: 35px 35px 0 10px #151728;
     transform: translateX(1px) translateY(-64px);
-    transition-timing-function: linear;
-    transition-duration: 0.2s;
+
 }
 
 
@@ -1703,8 +1701,7 @@ body.light .menu ul li.hovered a ::after {
     background: transparent;
     box-shadow: 35px -35px 0 10px #ffff;
     transform: translateX(0px) translateY(31px);
-    transition-timing-function: linear;
-    transition-duration: 0.2s;
+
 }
 
 .menu ul li:hover a ::after,
@@ -1719,8 +1716,7 @@ body.light .menu ul li.hovered a ::after {
     background: transparent;
     box-shadow: 35px -35px 0 10px #151728;
     transform: translateX(0px) translateY(31px);
-    transition-timing-function: linear;
-    transition-duration: 0.2s;
+
 
 }
 
