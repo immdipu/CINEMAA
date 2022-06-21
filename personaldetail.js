@@ -57,21 +57,17 @@ window.addEventListener("scroll", function () {
     }
 });
 
-let currthemeObj
+
 
 lightDarkmode.addEventListener("click", function () {
     document.body.classList.toggle("light");
-    let bodyattr = document.body.getAttribute("class").split(" ");
-    let currtheme = localStorage.getItem('currtheme')
-    currtheme = null
-    if (currtheme == null) {
-        currthemeObj = [];
+
+    if (document.body.classList.contains('light')) {
+        localStorage.setItem('theme', 'light')
     }
     else {
-        currthemeObj = JSON.parse(currtheme)
+        localStorage.setItem('dark');
     }
-    currthemeObj.push(bodyattr)
-    localStorage.setItem("currtheme", JSON.stringify(currthemeObj));
 });
 
 
@@ -96,18 +92,12 @@ const myApi = "6b2dec73b6697866a50cdaef60ccffcb";
 
 
 function settheme() {
-    let currtheme = localStorage.getItem('currtheme')
-    if (currtheme == null) {
-        currthemeObj = [];
+    let currtheme = localStorage.getItem('theme')
+    if (currtheme == 'light') {
+        document.body.classList.add('light')
     }
     else {
-        currthemeObj = JSON.parse(currtheme)
-    }
-    if (currthemeObj.length === 2) {
-        document.body.classList.add("light");
-    }
-    else {
-        document.body.classList.remove("light");
+        document.body.classList.remove('light')
     }
 }
 

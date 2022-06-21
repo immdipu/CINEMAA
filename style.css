@@ -982,7 +982,7 @@ body.light .home_header {
 
 body.light .overlay {
     height: 100%;
-    transition-duration: 0.5s;
+    transition-duration: 0.3s;
     transition-timing-function: linear;
 
 }
@@ -1656,8 +1656,8 @@ body.light .menu ul li.hovered a ::before {
     background: transparent;
     box-shadow: 35px 35px 0 10px #ffff;
     transform: translateX(1px) translateY(-64px);
-    transition-duration: 2s;
     transition-timing-function: linear;
+    transition-duration: 0.2s;
 }
 
 .menu ul li:hover a ::before,
@@ -1671,8 +1671,9 @@ body.light .menu ul li.hovered a ::before {
     background: transparent;
     box-shadow: 35px 35px 0 10px #151728;
     transform: translateX(1px) translateY(-64px);
-    transition-duration: 0.5s;
     transition-timing-function: linear;
+    transition-duration: 0.2s;
+
 }
 
 
@@ -1692,8 +1693,9 @@ body.light .menu ul li.hovered a ::after {
     background: transparent;
     box-shadow: 35px -35px 0 10px #ffff;
     transform: translateX(0px) translateY(31px);
-    transition-duration: 2s;
     transition-timing-function: linear;
+    transition-duration: 0.2s;
+
 }
 
 .menu ul li:hover a ::after,
@@ -1708,8 +1710,9 @@ body.light .menu ul li.hovered a ::after {
     background: transparent;
     box-shadow: 35px -35px 0 10px #151728;
     transform: translateX(0px) translateY(31px);
-    transition-duration: 0.5s;
     transition-timing-function: linear;
+    transition-duration: 0.2s;
+
 }
 
 
@@ -1719,6 +1722,8 @@ body.light .menu ul li.hovered a ::after {
 .menu ul li:hover,
 .menu ul li.hovered {
     background: #151728;
+    transition-timing-function: linear;
+    transition-duration: 0.2s;
 
 }
 
@@ -1732,6 +1737,8 @@ body.light .menu ul li.hovered a ::after {
 .menu ul li.hovered .path {
     color: #ffff;
     fill: #ffff;
+    transition-timing-function: linear;
+    transition-duration: 0.2s;
 
 }
 

@@ -75,17 +75,6 @@ window.onload = function () {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 searchbox.addEventListener('click', function () {
     location.replace("./search.html")
 })
@@ -114,23 +103,29 @@ window.addEventListener("scroll", function () {
     }
 });
 
-let currthemeObj
+
 
 lightDarkmode.addEventListener("click", function () {
     document.body.classList.toggle("light");
-    let bodyattr = document.body.getAttribute("class").split(" ");
-    let currtheme = localStorage.getItem('currtheme')
-    currtheme = null
-    if (currtheme == null) {
-        currthemeObj = [];
+
+    if (document.body.classList.contains(`light`)) {
+        localStorage.setItem(`theme`, `light`);
+    } else {
+        localStorage.setItem(`theme`, `dark`);
     }
-    else {
-        currthemeObj = JSON.parse(currtheme)
-    }
-    currthemeObj.push(bodyattr)
-    localStorage.setItem("currtheme", JSON.stringify(currthemeObj));
 });
 
+function settheme() {
+    let currtheme = localStorage.getItem('theme');
+    console.log(currtheme);
+    if (currtheme == 'light') {
+        document.body.classList.add("light");
+    } else {
+        document.body.classList.remove("light");
+    }
+}
+
+settheme()
 
 
 
@@ -488,20 +483,3 @@ NowPlayingMoviesDiv.addEventListener("click", movieId);
 
 
 
-function settheme() {
-    let currtheme = localStorage.getItem('currtheme')
-    if (currtheme == null) {
-        currthemeObj = [];
-    }
-    else {
-        currthemeObj = JSON.parse(currtheme)
-    }
-    if (currthemeObj.length === 2) {
-        document.body.classList.add("light");
-    }
-    else {
-        document.body.classList.remove("light");
-    }
-}
-
-settheme()

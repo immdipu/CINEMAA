@@ -18,12 +18,6 @@ const currentPopularMoviesDiv = document.querySelector(".current_popular_movies_
 const TopRatedMoviesDiv = document.querySelector(".Top_rated_movies_div");
 const menuulLI = document.querySelectorAll(".menu_ul li");
 
-
-
-
-
-
-
 menuulLI.forEach(item => {
     item.addEventListener('click', function () {
         menuulLI.forEach(i => i.classList.remove('hovered'))
@@ -32,48 +26,27 @@ menuulLI.forEach(item => {
 
 })
 
-
-
-let currthemeObj;
-
-
 lightDarkmode.addEventListener("click", function () {
-
     document.body.classList.toggle("light");
-    let bodyattr = document.body.getAttribute("class").split(" ");
-    let currtheme = localStorage.getItem('currtheme')
-    currtheme = null
-    if (currtheme == null) {
-        currthemeObj = [];
+
+    if (document.body.classList.contains(`light`)) {
+        localStorage.setItem(`theme`, `light`)
+    } else {
+        localStorage.setItem(`theme`, `dark`);
     }
-    else {
-        currthemeObj = JSON.parse(currtheme)
-    }
-    currthemeObj.push(bodyattr)
-    localStorage.setItem("currtheme", JSON.stringify(currthemeObj));
 });
 
-
 function settheme() {
-    let currtheme = localStorage.getItem('currtheme')
-    if (currtheme == null) {
-        currthemeObj = [];
-    }
-    else {
-        currthemeObj = JSON.parse(currtheme)
-    }
+    let currtheme = localStorage.getItem('theme');
 
-    if (currthemeObj.length === 2) {
+    if (currtheme == 'light') {
         document.body.classList.add("light");
-    }
-    else {
+    } else {
         document.body.classList.remove("light");
     }
 }
 
 settheme()
-
-
 
 arrowLeft.addEventListener("click", function () {
     document.body.classList.remove("minimize_siderbar");
@@ -92,14 +65,6 @@ overlaySideNavabar.addEventListener("click", function () {
     overlaySideNavabar.classList.remove("sidenav_container_active");
     document.body.classList.remove("minimize_siderbar");
 });
-
-
-
-
-
-
-
-
 
 const myApi = "6b2dec73b6697866a50cdaef60ccffcb";
 
@@ -130,7 +95,6 @@ const Toprated = async () => {
     const Topratedmovies = data.results;
     return Topratedmovies;
 }
-
 
 const NowPlayingfun = (movie) => {
     let url = "./movieDetail.html?id=" + encodeURIComponent(movie.id);
@@ -197,22 +161,12 @@ const topratedmoviesfun = (movie) => {
          </div>`;
 };
 
-
-
-
-
-
-
-
-
 // FORMATA DATE
 const dateFormatter = function (date) {
     let currdate = date;
     const newDate = currdate.slice(0, 4);
     return newDate;
 };
-
-
 
 NowPlaying().then((movies) => {
     movies.forEach((moviee) => {
