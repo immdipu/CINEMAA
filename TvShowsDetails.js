@@ -28,6 +28,7 @@ const menuulLI = document.querySelectorAll(".menu_ul li");
 
 
 
+
 hamburgerPhone.addEventListener("click", function () {
     sidenavChildContainer.classList.add("sidenav_container_active");
     overlaySideNavabar.classList.add("sidenav_container_active");
@@ -349,3 +350,8 @@ const simimarTvshowfun = (movie) => {
          </div>`;
 };
 
+
+
+searchbox.addEventListener('click', function () {
+    location.replace("./search.html")
+})

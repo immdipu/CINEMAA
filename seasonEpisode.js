@@ -13,6 +13,7 @@ const currentSeason = document.querySelector(".current_season");
 const menuulLI = document.querySelectorAll(".menu_ul li");
 const titleoftvshow = document.querySelector(".titleoftvshow");
 const movieDetailnavContainer = document.querySelector(".movieDetailnavContainer");
+const searchbox = document.querySelector(".search");
 
 hamburgerPhone.addEventListener("click", function () {
     sidenavChildContainer.classList.add("sidenav_container_active");
@@ -240,3 +241,8 @@ seasonnumfun(1);
 
 
 
+
+
+searchbox.addEventListener('click', function () {
+    location.replace("./search.html")
+})

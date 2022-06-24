@@ -12,6 +12,7 @@ const movieDetailnavContainer = document.querySelector(".movieDetailnavContainer
 const NextBtn = document.querySelector(".Next_btn");
 const previousBtn = document.querySelector(".previous_btn");
 const pageCount = document.querySelector(".pageCount");
+const searchbox = document.querySelector(".search");
 
 
 
@@ -186,25 +187,6 @@ previousBtn.addEventListener('click', function () {
 
 
 
-
-
-
-
-/*airingTodayfun().then(totalpge => {
-    let htmll = " ";
-    for (let i = 1; i < totalpge; i++) {
-        firstpage(i).then(totalarr => {
-            totalarr.forEach(item => {
-                if (item.poster_path !== null && 'first_air_date' in item) {
-                    htmll += searchfun(item);
-                    searchResultDiv.innerHTML = htmll;
-                }
-            })
-        })
-    }
-})*/
-
-
 const searchfun = (movie) => {
     let url = "./TvShowsDetails.html?id=" + encodeURIComponent(movie.id);
     return `<div class="item" >
@@ -260,4 +242,11 @@ categoLi.forEach(item => {
             pageCount.innerText = `${intialPage} of ${totalpage}`
         })
     })
+})
+
+
+
+
+searchbox.addEventListener('click', function () {
+    location.replace("./search.html")
 })
