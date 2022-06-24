@@ -136,12 +136,34 @@ const personMoivesfun = (movie) => {
 };
 
 
+const personTvShowfun = (movie) => {
+    let url = "./TvShowsDetails.html?id=" + encodeURIComponent(movie.id);
+    return `<div class="item" >
+    <a class="posterlink" href="${url}"> <img class="poster" data-id="${movie.id
+        }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="${movie.name
+        }"></a>
+         <p class="movie_title movie_title_search" >${movie.name}</p>
+         <div class="date_rating tvshows_date_rating">
+             <p class="date date_search">${dateFormatter(movie.first_air_date)}</p><span class="dot dot2 recommendTvShow_date_dot"></span>
+             <p class="rating rating_search">${movie.vote_average
+        }<span><svg xmlns="http://www.w3.org/2000/svg" width="10"
+                         height="10" fill="Yellow" class="star bi-star-fill" viewBox="0 0 16 16">
+                         <path
+                             d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                     </svg></span></p>
+             <div class="category category_search recommendTvShow_category">TV show</div>
+             </div>
+         </div>`;
+};
+
+
+
 
 
 
 const personMOvies = async (id) => {
     const res = await fetch(
-        `https://api.themoviedb.org/3/person/${id}?api_key=6b2dec73b6697866a50cdaef60ccffcb&append_to_response=movie_credits`
+        `https://api.themoviedb.org/3/person/${id}?api_key=6b2dec73b6697866a50cdaef60ccffcb&append_to_response=combined_credits`
     );
     const data = await res.json();
     const NowPlayingmovies = data;
@@ -157,12 +179,15 @@ window.onload = function () {
     let htmll = " "
     personMOvies(fetcid).then((dat) => {
         profilep(dat);
-        let moviecrdits = dat.movie_credits.cast;
+        let moviecrdits = dat.combined_credits.cast;
         moviecrdits.forEach(item => {
-            if (item.release_date !== "" && item.poster_path !== null) {
-                htmll += personMoivesfun(item);
-                searchResultDiv.innerHTML = htmll;
+            if (item.media_type == "tv" && item.poster_path != null) {
+                htmll += personTvShowfun(item);
             }
+            if (item.media_type == "movie" && item.release_date !== "" && item.poster_path !== null) {
+                htmll += personMoivesfun(item);
+            }
+            searchResultDiv.innerHTML = htmll;
         });
 
     });
