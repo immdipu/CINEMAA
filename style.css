@@ -1964,6 +1964,10 @@ body.light .pageCount {
         box-shadow: rgb(0 0 0 / 8%) 1px 0px 8px 1px, rgb(0 0 0 / 8%) 0px 1px 3px 0px;
     }
 
+    .Now_playing_movies_container_title {
+        margin: 37px 2px 13px 28px;
+    }
+
 }
 
 @media (max-width:445px) {
