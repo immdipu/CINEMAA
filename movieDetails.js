@@ -340,7 +340,7 @@ const html2 = function (moviee) {
             </svg>Play</button></a> 
     </div>
 
-</div> `;
+</div> `
 };
 
 const Bigposter = function (movieee) {

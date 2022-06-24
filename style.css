@@ -1198,6 +1198,208 @@ body.light .menu ul li.hovered {
 
 
 
+
+
+
+.titleoftvshow {
+    font-size: 27px;
+    margin: 140px 0px 0px 53px;
+}
+
+
+
+.seasonul {
+
+    display: flex;
+    gap: 10px;
+    width: fit-content;
+    margin: 31px 23px 2px 80px;
+
+}
+
+
+.season {
+    list-style: none;
+    background: #363636;
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 7px;
+    box-shadow: var(--shadow);
+    min-width: 29px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+}
+
+
+
+body.light .season {
+    background: white;
+    color: #000000;
+}
+
+
+body.light .seasonul li:hover {
+    background: #9d9d9d;
+    color: white;
+}
+
+
+.current_season {
+    margin: 25px 1px 23px 84px;
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.seaonlink {
+    text-decoration: none;
+    color: #000000;
+}
+
+
+.Episodes_container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+}
+
+
+body.light .epishodes_card {
+    box-shadow: rgb(0 0 0 / 1%) 0px 2px 3px 1px, rgb(0 0 0 / 26%) 0px 1px 4px 0px;
+    background-color: #ffff;
+}
+
+.epishodes_card {
+    display: flex;
+    gap: 20px;
+    margin: 0px 43px 0 84px;
+    border-radius: 8px;
+    box-shadow: rgb(0 0 0 / 1%) 0px 2px 3px 1px, rgb(0 0 0 / 26%) 0px 1px 4px 0px;
+    background-color: #1c1e30;
+}
+
+.episode_image {
+    width: 200px;
+    border-radius: 7px;
+    height: 100%;
+    object-fit: cover;
+}
+
+.playsvg_container {
+    position: absolute;
+    transform: translateX(74px) translateY(-85px);
+}
+
+.playsvg {
+    width: 40px;
+    filter: drop-shadow(2px px 4px 6px black);
+}
+
+.episode_detail {
+    align-self: center;
+}
+
+.episode_title {
+    color: #dbdbdb;
+}
+
+body.light .episode_title {
+    color: #383838;
+}
+
+.episode_title {
+    margin: 13px 0 8px 0px;
+}
+
+.episode_description {
+    color: #c9c9c9e0;
+    margin: 0 40px 16px 1px;
+    font-size: 14px;
+}
+
+
+body.light .episode_description {
+    color: #646464;
+
+}
+
+.runtime {
+    position: absolute;
+    left: 92px;
+    color: white;
+    filter: drop-shadow(2px 4px 6px black);
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-top: 4px;
+}
+
+.seasonBtnactive {
+    background: #efefef;
+    color: black;
+}
+
+body.light .seasonBtnactive {
+    background: #9d9d9d;
+    color: white;
+}
+
+.tvshowcategory_container {
+    margin: 31px 0px 35px 84px;
+}
+
+
+.tvshowheader {
+    margin: 0 0 0 73px;
+    font-size: 35px;
+}
+
+
+.tvshowcatrgory_ul {
+
+    display: flex;
+    gap: 15px;
+    width: fit-content;
+}
+
+.tvshowcatrgory_ul li {
+    list-style-type: none;
+    background-color: #ffffff;
+    padding: 5px 10px 6px 10px;
+    border-radius: 7px;
+    color: #222222;
+    font-weight: 500;
+    cursor: pointer;
+
+}
+
+
+.tvshowcatrgory_ul li:hover,
+.tvshowcatrgory_ul li.actv {
+    background-color: #6a6a6a;
+    color: #ffffff;
+}
+
+body.light .tvshowcatrgory_ul li:hover,
+body.light .tvshowcatrgory_ul li.actv {
+    background-color: #000000b3;
+    color: #ffffff;
+}
+
+body.light .tvshowcatrgory_ul li {
+    background-color: #e3e2e25e;
+    color: #4c4c4c;
+}
+
+
+
+
+
+
+
 /* screen size 1000px*/
 
 @media (max-width:1000px) {
@@ -1580,7 +1782,127 @@ body.light .menu ul li.hovered {
         margin: 20px 15px 22px 29px;
     }
 
+    .tvshowcatrgory_ul {
+        display: flex;
+        gap: 8px;
+        width: fit-content;
+        width: 100%;
+        justify-content: center;
+    }
 
+    .tvshowcategory_container {
+        margin: 31px 20px 35px 10px;
+    }
+
+    .tvshowcatrgory_ul li {
+        font-size: 10px;
+
+    }
+
+    .Now_playing_movies_container_search {
+        width: 100vw;
+        position: relative;
+        margin: 0px 0 0 0px;
+        margin-top: 6rem;
+    }
+
+    .tvshowdetail_date_rating {
+        display: flex;
+        align-items: center;
+        color: rgb(255, 255, 255);
+        margin: 0px 7px;
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    .dot3 {
+        display: none;
+    }
+
+    .reccomendation_tvshow {
+        height: 18rem;
+    }
+
+    .recommendTvShow_category {
+        font-size: 7px;
+    }
+
+    .recommendTvShow_date {
+        font-size: 10px;
+    }
+
+    .recommendTvShow_date_dot {
+        margin: 0px 5px;
+    }
+
+    .epishodes_card {
+        display: flex;
+        gap: 13px;
+        box-shadow: var(--shadow);
+        margin: 0px 20px 0 10px;
+        border-radius: 8px;
+    }
+
+    .episode_image {
+        width: 107px;
+        border-radius: 7px;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .playsvg_container {
+        position: absolute;
+        transform: translateX(35px) translateY(-52px);
+    }
+
+    .runtime {
+        position: absolute;
+        left: 17px;
+        color: white;
+        filter: drop-shadow(2px 4px 6px black);
+        font-size: 12px;
+        letter-spacing: 1px;
+        margin-top: 4px;
+    }
+
+    .episode_title {
+        font-size: 17px;
+        margin: 9px 0 3px 0px;
+    }
+
+    .episode_description {
+        color: #c9c9c9e0;
+        margin: 0 10px 10px 1px;
+        font-size: 12px;
+    }
+
+    .Episodes_container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .playsvg {
+        width: 29px;
+    }
+
+    .current_season {
+        margin: 24px 1px 23px 15px;
+        font-size: 20px;
+        font-weight: 200;
+    }
+
+    .seasonul {
+        display: flex;
+        gap: 10px;
+        width: fit-content;
+        margin: 31px 23px 2px 13px;
+    }
+
+    .titleoftvshow {
+        font-size: 26px;
+        margin: 94px 0px 0px 16px;
+    }
 }
 
 @media (max-width:445px) {
@@ -1593,6 +1915,11 @@ body.light .menu ul li.hovered {
     .alertMsg_header {
         font-weight: 700;
         font-size: 22px;
+    }
+
+    .playsvg_container {
+        position: absolute;
+        transform: translateX(39px) translateY(-63px);
     }
 }
 
@@ -1608,6 +1935,11 @@ body.light .menu ul li.hovered {
     .alertMsg_para {
         margin: 0px 0 0px 0px;
         color: #505050;
+    }
+
+    .playsvg_container {
+        position: absolute;
+        transform: translateX(39px) translateY(-64px);
     }
 }
 
