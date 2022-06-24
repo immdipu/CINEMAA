@@ -9,6 +9,9 @@ const menuulLI = document.querySelectorAll(".menu_ul li");
 const categoLi = document.querySelectorAll(".tvshowcatrgory_ul li");
 const categoUl = document.querySelector(".tvshowcatrgory_ul");
 const movieDetailnavContainer = document.querySelector(".movieDetailnavContainer");
+const NextBtn = document.querySelector(".Next_btn");
+const previousBtn = document.querySelector(".previous_btn");
+const pageCount = document.querySelector(".pageCount");
 
 
 
@@ -36,12 +39,10 @@ menuulLI[2].classList.add('hovered');
 
 categoLi[0].classList.add('actv')
 
-categoLi.forEach(item => {
-    item.addEventListener('click', function () {
-        categoLi.forEach(i => i.classList.remove('actv'));
-        item.classList.add('actv')
-    })
-})
+let category = "airing_today"
+
+
+
 
 
 hamburgerPhone.addEventListener("click", function () {
@@ -93,27 +94,103 @@ function settheme() {
 settheme()
 
 
+let airingToday = "airing_today"
+let onTheAir = "on_the_air"
+let Popular = "popular"
+let topRated = "top_rated"
+
+
+
+
+
+
+
 
 
 
 const myApi = "6b2dec73b6697866a50cdaef60ccffcb";
 
-const firstpage = async (i) => {
-    const res = await fetch(`https://api.themoviedb.org/3/tv/airing_today?api_key=6b2dec73b6697866a50cdaef60ccffcb&page=${i}`);
+const firstpage = async () => {
+    const res = await fetch(`https://api.themoviedb.org/3/tv/${category}?api_key=6b2dec73b6697866a50cdaef60ccffcb&page=${intialPage}`);
     const data = await res.json();
     const airingtoday = data.results;
-    return airingtoday;
+    let htmll = " ";
+    airingtoday.forEach(item => {
+        if (item.poster_path !== null && 'first_air_date' in item) {
+            htmll += searchfun(item);
+            searchResultDiv.innerHTML = htmll;
+        }
+    })
 }
 
+
+
 const airingTodayfun = async () => {
-    const res = await fetch(`https://api.themoviedb.org/3/tv/airing_today?api_key=6b2dec73b6697866a50cdaef60ccffcb`);
+    const res = await fetch(`https://api.themoviedb.org/3/tv/${category}?api_key=6b2dec73b6697866a50cdaef60ccffcb`);
     const data = await res.json();
     let totalPages = data.total_pages;
     return totalPages;
+
 }
 
+let intialPage = 1
+firstpage();
+airingTodayfun().then(totalpage => {
+    pageCount.innerText = `${intialPage} of ${totalpage}`
+})
 
-airingTodayfun().then(totalpge => {
+
+
+const btnactive = function (intial, totalpage) {
+    if (intial == 1) {
+        previousBtn.classList.add('btnDeactive');
+        NextBtn.classList.remove('btnDeactive');
+    }
+
+    if (intial > 1) {
+        previousBtn.classList.remove('btnDeactive');
+        NextBtn.classList.remove('btnDeactive');
+    }
+
+    if (intial == totalpage) {
+        previousBtn.classList.remove('btnDeactive');
+        NextBtn.classList.add('btnDeactive');
+    }
+
+}
+
+previousBtn.classList.add('btnDeactive');
+
+NextBtn.addEventListener('click', function () {
+    airingTodayfun().then(totalpage => {
+        if (intialPage < totalpage) {
+            intialPage += 1
+            firstpage();
+            pageCount.innerText = `${intialPage} of ${totalpage}`
+            btnactive(intialPage, totalpage)
+        }
+    })
+})
+
+previousBtn.addEventListener('click', function () {
+    airingTodayfun().then(totalpage => {
+        if (intialPage > 1) {
+            intialPage -= 1
+            pageCount.innerText = `${intialPage} of ${totalpage}`
+            firstpage();
+            btnactive(intialPage, totalpage)
+        }
+    })
+})
+
+
+
+
+
+
+
+
+/*airingTodayfun().then(totalpge => {
     let htmll = " ";
     for (let i = 1; i < totalpge; i++) {
         firstpage(i).then(totalarr => {
@@ -125,7 +202,7 @@ airingTodayfun().then(totalpge => {
             })
         })
     }
-})
+})*/
 
 
 const searchfun = (movie) => {
@@ -158,3 +235,29 @@ const dateFormatter = function (date) {
 };
 
 
+categoLi.forEach(item => {
+    item.addEventListener('click', function () {
+        categoLi.forEach(i => i.classList.remove('actv'));
+        item.classList.add('actv')
+        if (item.innerText == "Airing Today") {
+            category = "airing_today"
+
+        }
+        if (item.innerText == "On The Air") {
+            category = "on_the_air"
+
+        }
+        if (item.innerText == "Popular") {
+            category = "popular"
+
+        }
+        if (item.innerText == "Top Rated") {
+            category = "top_rated"
+
+        }
+        firstpage()
+        airingTodayfun().then(totalpage => {
+            pageCount.innerText = `${intialPage} of ${totalpage}`
+        })
+    })
+})

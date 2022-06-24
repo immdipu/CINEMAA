@@ -1395,9 +1395,44 @@ body.light .tvshowcatrgory_ul li {
 }
 
 
+body.light .pagination {
+    background-color: #ffffff;
+    box-shadow: rgb(0 0 0 / 8%) 1px 0px 8px 1px, rgb(0 0 0 / 8%) 0px 1px 3px 0px;
+}
+
+.paginationBtn {
+    border: none;
+    outline: none;
+    font-size: 18px;
+    height: 38px;
+    width: 104px;
+    border-radius: 6px;
+    font-weight: 600;
+    color: #d7d7d7;
+    background-color: #303246;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+body.light .pageCount {
+    color: #626262;
+}
 
 
 
+
+.pageCount {
+    color: #b7b7b7;
+    font-size: 22px;
+    margin: 0 10px 0 10px;
+    font-weight: 600;
+}
+
+.pagination {
+    background-color: #1a1d30;
+    padding: 15px 56px 15px 56px;
+    border-radius: 6px;
+}
 
 
 /* screen size 1000px*/
@@ -1907,6 +1942,28 @@ body.light .tvshowcatrgory_ul li {
     .tvshows_date_rating {
         margin: 0 2px 0 2px;
     }
+
+    .paginationBtn {
+
+        font-size: 15px;
+        height: 29px;
+        width: 85px;
+        letter-spacing: 1px;
+        cursor: pointer;
+    }
+
+    .pageCount {
+        font-size: 14px;
+        margin: 0 8px 0 8px;
+        font-weight: 600;
+    }
+
+    .pagination {
+        padding: 13px 23px 15px 23px;
+        border-radius: 6px;
+        box-shadow: rgb(0 0 0 / 8%) 1px 0px 8px 1px, rgb(0 0 0 / 8%) 0px 1px 3px 0px;
+    }
+
 }
 
 @media (max-width:445px) {
@@ -1944,6 +2001,19 @@ body.light .tvshowcatrgory_ul li {
     .playsvg_container {
         position: absolute;
         transform: translateX(39px) translateY(-64px);
+    }
+}
+
+
+@media (max-width:295px) {
+    .pagination {
+        padding: 11px 8px 15px 8px;
+    }
+
+    .paginationBtn {
+        font-size: 14px;
+        height: 28px;
+        width: 72px;
     }
 }
 
@@ -2175,4 +2245,42 @@ body.light .birth_place,
 body.light .DoB,
 body.light .pi_header {
     color: #1c1c1c;
+}
+
+
+.pagination_container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.paginationBtn {
+    border: none;
+    outline: none;
+}
+
+
+
+.paginationBtn:hover {
+    background-color: #f8f8f8;
+    color: #575757;
+}
+
+body.light .paginationBtn:hover {
+    border: 1px solid black;
+}
+
+.btnDeactive {
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+
+body.light .paginationBtn {
+    color: #4c4c4c;
+    background-color: #ffffff;
+    box-shadow: rgb(0 0 0 / 79%) 0px 0px 6px -2px, rgb(0 0 0 / 0%) 0px 0px 0px 0px;
 }
