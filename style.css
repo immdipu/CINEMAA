@@ -891,14 +891,7 @@ body.minimize_siderbar .section_one_movieDetail {
     margin-left: 5rem;
 }
 
-.attribution {
-    font-size: 11px;
-    text-align: center;
-}
 
-.attribution a {
-    color: hsl(228, 45%, 44%);
-}
 
 .overlay2 {
     z-index: -1;
