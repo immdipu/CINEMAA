@@ -1235,7 +1235,6 @@ body.light .menu ul li.hovered {
 }
 
 
-
 body.light .season {
     background: white;
     color: #000000;
@@ -1539,6 +1538,46 @@ body.light .aboutSvg:hover {
     fill: black;
 }
 
+
+.movies_category_ul {
+    flex-wrap: wrap;
+    width: 90%;
+}
+
+
+
+
+.msg_episode_container {
+    margin: auto;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+}
+
+.msg_episode {
+    color: #c1c1c1;
+    font-size: 13px;
+    animation: moving 20s linear backwards;
+    animation-iteration-count: 4;
+    opacity: 0.4;
+    white-space: nowrap;
+}
+
+body.light .msg_episode {
+    color: #000000;
+
+}
+
+
+@keyframes moving {
+    0% {
+        transform: translateX(-20%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
 
 
 
@@ -2118,6 +2157,27 @@ body.light .aboutSvg:hover {
         width: 93%;
         margin: 0 25px 0 0px;
     }
+
+    .msg_episode {
+        color: #c1c1c1;
+        font-size: 12px;
+        animation: moving 15s linear backwards;
+        animation-iteration-count: 4;
+    }
+
+
+
+    @keyframes moving {
+        0% {
+            transform: translateX(100%);
+        }
+
+        100% {
+            transform: translateX(-80%);
+        }
+    }
+
+
 }
 
 @media (max-width:445px) {
@@ -2243,9 +2303,6 @@ body.light .menu ul li.hovered a ::before {
     transform: translateX(1px) translateY(-64px);
 
 }
-
-
-
 
 
 

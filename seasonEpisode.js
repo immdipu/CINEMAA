@@ -14,6 +14,7 @@ const menuulLI = document.querySelectorAll(".menu_ul li");
 const titleoftvshow = document.querySelector(".titleoftvshow");
 const movieDetailnavContainer = document.querySelector(".movieDetailnavContainer");
 const searchbox = document.querySelector(".search");
+const msgEpisodeContainer = document.querySelector(".msg_episode_container");
 
 hamburgerPhone.addEventListener("click", function () {
     sidenavChildContainer.classList.add("sidenav_container_active");
@@ -27,6 +28,13 @@ overlaySideNavabar.addEventListener("click", function () {
     document.body.classList.remove("minimize_siderbar");
     hamburgerPhone.classList.remove("hamburgerphonedeactive");
 });
+
+
+
+const hideMsg = function () {
+    msgEpisodeContainer.style.display = "none"
+}
+setTimeout(hideMsg, 60000);
 
 
 
