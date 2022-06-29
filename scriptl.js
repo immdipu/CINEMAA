@@ -274,10 +274,6 @@ window.onload = function () {
 }
 
 
-
-
-
-
 searchbox.addEventListener('click', function () {
     location.replace("./search.html")
 })

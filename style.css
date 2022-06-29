@@ -1624,6 +1624,7 @@ body.light .msg_episode {
 
     .first_box {
         width: 100%;
+
     }
 
     .card h3 {
@@ -1664,6 +1665,20 @@ body.light .msg_episode {
 
     .first_box {
         width: 100%;
+        background-blend-mode: luminosity;
+        background-color: #295693;
+        background-image: url(./resources/John-Wick-Wallpaper-removebg.png);
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 27px 12px 13px 25px;
+        background-repeat: no-repeat;
+        background-size: 25rem;
+        border-radius: 15px;
+        color: #464444;
+        background-position: -23%;
+        box-shadow: 0 6px 30px -10px #4a74c9;
+        z-index: 1;
     }
 
     .about {
