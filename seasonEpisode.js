@@ -160,7 +160,7 @@ const CurrEpisode = async (tv_id, currSea, currEpiso) => {
 
 const episodefun = function (currepsh) {
     return `<div class="epishodes_card">
-    <a href=" https://www.2embed.ru/embed/tmdb/tv?id=${fetcid}&s=${currepsh.season_number}&e=${currepsh.episode_number}"><img class="episode_image"
+    <a href=" https://www.2embed.toS/embed/tmdb/tv?id=${fetcid}&s=${currepsh.season_number}&e=${currepsh.episode_number}"><img class="episode_image"
             src="https://image.tmdb.org/t/p/w500/${currepsh.still_path}" alt="${currepsh.name}">
             <span class="runtime">${timeCon(currepsh.runtime)}</span>
         <div class="playsvg_container"><img class="playsvg" src="./resources/play-circle-fill.svg"
