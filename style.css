@@ -375,8 +375,10 @@ body.minimize_siderbar .section_one_movieDetail {
 .first_box {
     width: 72%;
     background-blend-mode: luminosity;
+    background-blend-mode: hard-light;
     background-color: #4784ff;
     background-image: url(./resources/John-Wick-Wallpaper-removebg.png);
+    background-image: url(./resources/Homelaner-removebg-preview.png);
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -386,6 +388,7 @@ body.minimize_siderbar .section_one_movieDetail {
     border-radius: 15px;
     color: #4784ff;
     background-position: 100%;
+    background-position: 107%;
     box-shadow: 0 6px 30px -10px #4a74c9;
     z-index: 1;
 
@@ -1667,7 +1670,6 @@ body.light .msg_episode {
         width: 100%;
         background-blend-mode: luminosity;
         background-color: #295693;
-        background-image: url(./resources/John-Wick-Wallpaper-removebg.png);
         display: flex;
         flex-direction: column;
         gap: 2rem;
@@ -1677,6 +1679,7 @@ body.light .msg_episode {
         border-radius: 15px;
         color: #464444;
         background-position: -23%;
+        background-position: -55%;
         box-shadow: 0 6px 30px -10px #4a74c9;
         z-index: 1;
     }
