@@ -1861,7 +1861,7 @@ body.light .msg_episode {
         font-size: 13px;
         flex-wrap: inherit;
         width: 91%;
-        margin-left: 33px;
+        margin-left: 0px;
 
     }
 
