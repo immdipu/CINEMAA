@@ -54,6 +54,7 @@ body {
     transition-timing-function: ease-out;
     z-index: 3;
     background-color: #33373e;
+    background-color: #202326;
     padding: 0 0 0 2px;
     transition-duration: 0.3s;
     transition-timing-function: linear;
@@ -334,6 +335,7 @@ body.minimize_siderbar .section_one_movieDetail {
 
 ::placeholder {
     color: #ffff;
+    opacity: 0.6;
 }
 
 
@@ -2513,4 +2515,10 @@ body.light .paginationBtn {
     color: #4c4c4c;
     background-color: #ffffff;
     box-shadow: rgb(0 0 0 / 79%) 0px 0px 5px -3px, rgb(0 0 0 / 0%) 0px 0px 0px 0px;
+}
+
+
+::selection {
+    background-color: rgb(230, 255, 138);
+    color: black;
 }

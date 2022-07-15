@@ -66,13 +66,23 @@ AllCards.forEach(card => card.classList.add('hideCard'));
 
 AllCards.forEach(eachCard => {
     eachCard.addEventListener('click', function () {
-        AllCards.forEach(card => {
-            card.classList.add('hideCard');
-            card.classList.remove('rotate');
-        });
+        if (!eachCard.classList.contains('hideCard')) {
+            eachCard.classList.add('hideCard');
+            eachCard.classList.remove('rotate');
+        }
 
-        eachCard.classList.toggle('hideCard');
-        eachCard.classList.toggle('rotate');
+        else {
+
+
+
+            AllCards.forEach(card => {
+                card.classList.add('hideCard');
+                card.classList.remove('rotate');
+            });
+
+            eachCard.classList.toggle('hideCard');
+            eachCard.classList.toggle('rotate');
+        }
 
     })
 
