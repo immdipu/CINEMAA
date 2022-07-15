@@ -2191,6 +2191,10 @@ body.light .msg_episode {
         font-size: 7px;
     }
 
+    .dot {
+        width: 3px;
+        height: 3px;
+    }
 
 
 }
