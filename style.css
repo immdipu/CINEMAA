@@ -1392,17 +1392,16 @@ body.light .tvshowcatrgory_ul li {
 
 body.light .pagination {
     background-color: #ffffff;
-    box-shadow: rgb(0 0 0 / 8%) 1px 0px 8px 1px, rgb(0 0 0 / 8%) 0px 1px 3px 0px;
+    box-shadow: rgb(0 0 0 / 8%) 1px 0px 8px 1px, rgb(0 0 0 / 8%) 0px 0px 0px 0px;
 }
 
 .paginationBtn {
     border: none;
     outline: none;
-    font-size: 18px;
+    font-size: 16px;
     height: 38px;
     width: 104px;
     border-radius: 6px;
-    font-weight: 600;
     color: #d7d7d7;
     background-color: #303246;
     letter-spacing: 1px;
@@ -1418,9 +1417,9 @@ body.light .pageCount {
 
 .pageCount {
     color: #b7b7b7;
-    font-size: 22px;
+    font-size: 16px;
     margin: 0 10px 0 10px;
-    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
 }
 
 .pagination {
@@ -2188,6 +2187,11 @@ body.light .msg_episode {
         }
     }
 
+    .category {
+        font-size: 7px;
+    }
+
+
 
 }
 
@@ -2492,7 +2496,7 @@ body.light .pi_header {
 }
 
 body.light .paginationBtn:hover {
-    border: 1px solid black;
+    border: 1px solid rgba(77, 68, 68, 0.979);
 }
 
 .btnDeactive {
@@ -2504,5 +2508,5 @@ body.light .paginationBtn:hover {
 body.light .paginationBtn {
     color: #4c4c4c;
     background-color: #ffffff;
-    box-shadow: rgb(0 0 0 / 79%) 0px 0px 6px -2px, rgb(0 0 0 / 0%) 0px 0px 0px 0px;
+    box-shadow: rgb(0 0 0 / 79%) 0px 0px 5px -3px, rgb(0 0 0 / 0%) 0px 0px 0px 0px;
 }
