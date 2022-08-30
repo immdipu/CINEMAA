@@ -24,8 +24,12 @@ const searchbox = document.querySelector(".search");
 const recommendationMoviesDiv = document.querySelector(".recommendation_movies_div");
 const SimilarMoviesDiv = document.querySelector(".Similar_movies_div");
 const Casdiv = document.querySelector(".Casdiv");
+const preLoader = document.querySelector(".preloader");
 
 
+window.addEventListener('load', function () {
+    preLoader.style.display = 'none';
+})
 
 
 
@@ -50,7 +54,7 @@ const Castfun = (castee) => {
 
 let url = document.location.href;
 let fetcid = url.slice(url.indexOf("=") + 1);
-window.onload = function () {
+const movieLoad = function () {
     CurrMovie(fetcid).then((dat) => {
         let htm = "";
         htm = html2(dat);
@@ -356,6 +360,7 @@ const CurrMovie = async (id) => {
     return data;
 };
 
+movieLoad();
 
 
 
