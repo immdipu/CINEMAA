@@ -224,6 +224,7 @@ const timeCon = function (oldtime) {
 const seasonnumfun = function (seasoncc) {
     EpisodesContainer.innerHTML = " ";
     CurrTvshow(fetcid).then((dat) => {
+        document.title = `${dat.name + " " + "|" + " " + "Seasons"}`
         titleoftvshow.innerText = dat.name;
         let numseasons = dat.seasons;
         const currsea = function (seasonNO) {
