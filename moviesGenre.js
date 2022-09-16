@@ -240,6 +240,7 @@ categoUl.addEventListener('click', function (e) {
         categoLi.forEach(i => i.classList.remove('actv'));
         element.classList.add('actv')
         categoryId = element.dataset.id;
+        intialPage = 1;
         firstpage()
         airingTodayfun().then(totalpage => {
             pageCount.innerText = `${intialPage} of ${totalpage}`

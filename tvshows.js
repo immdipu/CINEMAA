@@ -237,6 +237,7 @@ categoLi.forEach(item => {
             category = "top_rated"
 
         }
+        intialPage = 1;
         firstpage()
         airingTodayfun().then(totalpage => {
             pageCount.innerText = `${intialPage} of ${totalpage}`
