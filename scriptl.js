@@ -70,7 +70,7 @@ const myApi = "6b2dec73b6697866a50cdaef60ccffcb";
 
 const NowPlaying = async () => {
     const res = await fetch(
-        `https://api.themoviedb.org/3/movie/now_playing?api_key=${myApi}&language=en-US&page=1`
+        "https://api.themoviedb.org/3/movie/now_playing?api_key=680c99274ddab12ffac27271d9445d45&language=en-US&page=1"
     );
     const data = await res.json();
     const NowPlayingmovies = data.results;
@@ -100,7 +100,7 @@ const NowPlayingfun = (movie) => {
     let url = "./movieDetail.html?id=" + encodeURIComponent(movie.id);
     return `<div class="Now_playing_movies" >
     <a class="posterlink" href=${url}> <img class="poster" data-id="${movie.id
-        }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="${movie.title
+        }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" loading="lazy" alt="${movie.title
         }"></a>
          <p class="movie_title">${movie.title}</p>
          <div class="date_rating">
@@ -122,7 +122,7 @@ const currpopularfun = (movie) => {
     let url = "./movieDetail.html?id=" + encodeURIComponent(movie.id);
     return `<div class="current_popular_movies" >
     <a class="posterlink" href=${url}> <img class="poster" data-id="${movie.id
-        }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="${movie.title
+        }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" loading="lazy" alt="${movie.title
         }"></a>
          <p class="movie_title">${movie.title}</p>
          <div class="date_rating">
@@ -143,7 +143,7 @@ const topratedmoviesfun = (movie) => {
     let url = "./movieDetail.html?id=" + encodeURIComponent(movie.id);
     return `<div class="Top_rated_movies" >
     <a class="posterlink" href=${url}> <img class="poster" data-id="${movie.id
-        }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="${movie.title
+        }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" loading="lazy" alt="${movie.title
         }"></a>
          <p class="movie_title">${movie.title}</p>
          <div class="date_rating">

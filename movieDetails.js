@@ -38,7 +38,7 @@ const Castfun = (castee) => {
     let url = "./personDetail.html?id=" + encodeURIComponent(castee.id);
     return `<div class="Now_playing_movies castdiv" >
     <a class="posterlink" href="${url}"> <img class="poster" data-id="${castee.id
-        }" src="https://image.tmdb.org/t/p/w500/${castee.profile_path}" alt="${castee.original_name
+        }" src="https://image.tmdb.org/t/p/w500/${castee.profile_path}" loading="lazy" alt="${castee.original_name
         }"></a>
         <div class="name_character_container">
          <p class="movie_title">${castee.original_name}</p>
@@ -56,6 +56,7 @@ let url = document.location.href;
 let fetcid = url.slice(url.indexOf("=") + 1);
 const movieLoad = function () {
     CurrMovie(fetcid).then((dat) => {
+
         let htm = "";
         htm = html2(dat);
         movieDetails.innerHTML = htm;
@@ -63,12 +64,26 @@ const movieLoad = function () {
         posterBBig.innerHTML = BigPoster;
         sectionStory.textContent = dat.overview;
         let castarr = dat.credits.cast;
-        castarr.forEach(item => {
-            if (item.profile_path !== null) {
-                const castehtml = Castfun(item);
-                Casdiv.insertAdjacentHTML("beforeend", castehtml);
-            }
-        })
+        console.log(castarr);
+        if (castarr.length > 10) {
+            let NewCastarr = castarr.slice(0, 10);
+            NewCastarr.forEach(item => {
+                if (item.profile_path !== null) {
+                    const castehtml = Castfun(item);
+                    Casdiv.insertAdjacentHTML("beforeend", castehtml);
+                }
+            })
+        }
+        else {
+            castarr.forEach(item => {
+                if (item.profile_path !== null) {
+                    const castehtml = Castfun(item);
+                    Casdiv.insertAdjacentHTML("beforeend", castehtml);
+                }
+            })
+        }
+
+
         const castdiv = document.querySelectorAll(".castdiv");
         castdiv.forEach(
             (ele, i) => (ele.style.transform = `TranslateX(${i * 115}%)`)
@@ -186,7 +201,7 @@ const NowPlayingfun = (movie) => {
     let url = "./movieDetail.html?id=" + encodeURIComponent(movie.id);
     return `<div class="Now_playing_movies" >
     <a class="posterlink" href="${url}"> <img class="poster" data-id="${movie.id
-        }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="${movie.title
+        }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" loading="lazy"  alt="${movie.title
         }"></a>
          <p class="movie_title">${movie.title}</p>
          <div class="date_rating">
@@ -353,7 +368,7 @@ const Bigposter = function (movieee) {
 
 const CurrMovie = async (id) => {
     const res = await fetch(
-        `https://api.themoviedb.org/3/movie/${id}?api_key=${myApi}&append_to_response=credits`
+        `https://api.themoviedb.org/3/movie/${id}?api_key=680c99274ddab12ffac27271d9445d45&append_to_response=credits`
     );
 
     const data = await res.json();
@@ -393,7 +408,7 @@ const recommMovieFun = (mov) => {
     let url = "./movieDetail.html?id=" + encodeURIComponent(mov.id);
     return `<div class="Now_playing_movies recommenMovies" >
     <a class="posterlink" href="${url}"> <img class="poster" data-id="${mov.id
-        }" src="https://image.tmdb.org/t/p/w500/${mov.poster_path}" alt="${mov.title
+        }" src="https://image.tmdb.org/t/p/w500/${mov.poster_path}" loading="lazy" alt="${mov.title
         }"></a>
          <p class="movie_title">${mov.title}</p>
          <div class="date_rating">
@@ -415,7 +430,7 @@ const simimarMoviefun = (movie) => {
     let url = "./movieDetail.html?id=" + encodeURIComponent(movie.id);
     return `<div class="Now_playing_movies similarMovies" >
     <a class="posterlink" href="${url}"> <img class="poster" data-id="${movie.id
-        }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="${movie.title
+        }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" loading="lazy" alt="${movie.title
         }"></a>
          <p class="movie_title">${movie.title}</p>
          <div class="date_rating">
