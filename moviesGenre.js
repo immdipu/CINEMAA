@@ -206,7 +206,7 @@ const searchfun = (movie) => {
     let url = "./movieDetail.html?id=" + encodeURIComponent(movie.id);
     return `<div class="item" >
     <a class="posterlink" href="${url}"> <img class="poster" data-id="${movie.id
-        }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="${movie.title
+        }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}"  alt="${movie.title
         }"></a>
          <p class="movie_title movie_title_search" >${movie.title}</p>
          <div class="date_rating tvshows_date_rating">

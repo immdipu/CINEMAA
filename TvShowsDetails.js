@@ -181,7 +181,7 @@ const Castfun = (castee) => {
     let url = "./personDetail.html?id=" + encodeURIComponent(castee.id);
     return `<div class="Now_playing_movies castdiv" >
     <a class="posterlink" href="${url}"> <img class="poster" data-id="${castee.id
-        }" src="https://image.tmdb.org/t/p/w500/${castee.profile_path}" alt="${castee.original_name
+        }" src="https://image.tmdb.org/t/p/w500/${castee.profile_path}" loading="lazy" alt="${castee.original_name
         }"></a>
         <div class="name_character_container">
          <p class="movie_title">${castee.original_name}</p>
@@ -310,7 +310,7 @@ const recommTvshowFun = (mov) => {
     let url = "./TvshowsDetails.html?id=" + encodeURIComponent(mov.id);
     return `<div class="Now_playing_movies recommenMovies" >
     <a class="posterlink" href="${url}"> <img class="poster" data-id="${mov.id
-        }" src="https://image.tmdb.org/t/p/w500/${mov.poster_path}" alt="${mov.name
+        }" src="https://image.tmdb.org/t/p/w500/${mov.poster_path}" loading="lazy" alt="${mov.name
         }"></a>
          <p class="movie_title">${mov.name}</p>
          <div class="date_rating">
@@ -333,7 +333,7 @@ const simimarTvshowfun = (movie) => {
     let url = "./TvshowsDetails.html?id=" + encodeURIComponent(movie.id);
     return `<div class="Now_playing_movies similarMovies" >
     <a class="posterlink" href="${url}"> <img class="poster" data-id="${movie.id
-        }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" alt="${movie.name
+        }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" loading="lazy" alt="${movie.name
         }"></a>
          <p class="movie_title">${movie.name}</p>
          <div class="date_rating">

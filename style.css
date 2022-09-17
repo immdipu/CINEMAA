@@ -904,7 +904,6 @@ body.minimize_siderbar .section_one_movieDetail {
 
 
 
-
 /* Light mode*/
 
 body.light .nav_paremt_conatainer {
@@ -1346,6 +1345,10 @@ body.light .seasonBtnactive {
 
 .tvshowcategory_container {
     margin: 31px 0px 35px 84px;
+    margin: 31px 0px 35px 84px;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
 }
 
 
@@ -1355,14 +1358,15 @@ body.light .seasonBtnactive {
 }
 
 
-.tvshowcatrgory_ul {
-
+.tvshowcatrgory_ul,
+.tvshowscatogry_genre {
     display: flex;
     gap: 15px;
     width: fit-content;
 }
 
-.tvshowcatrgory_ul li {
+.tvshowcatrgory_ul li,
+.tvshowscatogry_genre li {
     list-style-type: none;
     background-color: #ffffff;
     padding: 5px 10px 6px 10px;
@@ -1380,16 +1384,41 @@ body.light .seasonBtnactive {
     color: #ffffff;
 }
 
+.tvshowscatogry_genre li:hover,
+.tvshowscatogry_genre li.actv {
+    background-color: #6a6a6a;
+    color: #ffffff;
+}
+
+
+
+
 body.light .tvshowcatrgory_ul li:hover,
 body.light .tvshowcatrgory_ul li.actv {
     background-color: #000000b3;
     color: #ffffff;
 }
 
+body.light .tvshowscatogry_genre li:hover,
+body.light .tvshowscatogry_genre li.actv {
+    background-color: #000000b3;
+    color: #ffffff;
+}
+
+
+
 body.light .tvshowcatrgory_ul li {
     background-color: #e3e2e25e;
     color: #4c4c4c;
 }
+
+
+body.light .tvshowscatogry_genre li {
+    background-color: #e3e2e25e;
+    color: #4c4c4c;
+}
+
+
 
 
 body.light .pagination {
@@ -1576,6 +1605,11 @@ body.light .msg_episode {
     }
 }
 
+
+.tvshowscatogry_genre {
+    flex-wrap: wrap;
+    width: 90%;
+}
 
 
 
@@ -1991,7 +2025,8 @@ body.light .msg_episode {
         margin: 20px 15px 22px 29px;
     }
 
-    .tvshowcatrgory_ul {
+    .tvshowcatrgory_ul,
+    .tvshowscatogry_genre {
         display: flex;
         gap: 8px;
         width: fit-content;
@@ -2003,7 +2038,8 @@ body.light .msg_episode {
         margin: 31px 20px 35px 10px;
     }
 
-    .tvshowcatrgory_ul li {
+    .tvshowcatrgory_ul li,
+    .tvshowscatogry_genre {
         font-size: 10px;
 
     }
@@ -2635,3 +2671,12 @@ body.light .paginationBtn {
     color: #fff;
     left: 15%;
 }
+
+
+.tvshowscatogry_genre li {
+    list-style: none;
+    height: min-content;
+    flex-wrap: wrap;
+}
+
+.linee {}
