@@ -64,7 +64,7 @@ const movieLoad = function () {
         posterBBig.innerHTML = BigPoster;
         sectionStory.textContent = dat.overview;
         let castarr = dat.credits.cast;
-        console.log(castarr);
+        // console.log(castarr);
         if (castarr.length > 10) {
             let NewCastarr = castarr.slice(0, 10);
             NewCastarr.forEach(item => {
@@ -229,7 +229,9 @@ const NowPlayingfun = (movie) => {
 const dateFormatter = function (date) {
     let currdate = date;
     const newDate = currdate.slice(0, 4);
+    console.log(newDate);
     return newDate;
+
 };
 
 
@@ -345,18 +347,24 @@ const html2 = function (moviee) {
         <div class="date_rating">
             <p class="time">${moviee.runtime} minutes</p><span class="dot dot2"></span>
             <p class="date">${moviee.release_date}</p><span class="dot dot2"></span>
-            <p class="rating">${moviee.vote_average}<span><svg xmlns="http://www.w3.org/2000/svg" width="10"
+            <p class="rating">${averagVoteformat(moviee.vote_average)}<span><svg xmlns="http://www.w3.org/2000/svg" width="10"
                         height="10" fill="Yellow" class="star bi-star-fill" viewBox="0 0 16 16">
                         <path
                             d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
                     </svg></span></p>
         </div>
+        <div class="playButtonContainer"> 
+       
         <a class="playLink" href="https://www.2embed.to/embed/imdb/movie?id=${moviee.imdb_id}"><button class="play_btn"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
                 fill="currentColor" class="path_btn bi-play-fill" viewBox="0 0 16 16">
                 <path class="path_btnn"
                     d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z">
                 </path>
             </svg>Play</button></a> 
+            <span > <a class="GoogleButton" href="https://www.google.com/search?q=${moviee.title + " " + "(" + (dateFormatter(
+        moviee.release_date)) + ")"}" target="_blank">Google It!</a> </span> 
+            </div>
+            
     </div>
 
 </div> `

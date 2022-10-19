@@ -165,6 +165,34 @@ body {
 
 
 
+
+.GoogleButton {
+    color: rgb(199 199 199 / 90%);
+    cursor: pointer;
+    padding: 7px 16px 7px 16px;
+    border-radius: 11px;
+    font-size: 11px;
+    text-decoration: none;
+    transition: all .2s ease-in-out;
+    background: #1b1d30;
+}
+
+.playButtonContainer {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.GoogleButton:hover {
+    box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+    color: rgb(255, 255, 255);
+
+}
+
+
+
+
+
 body.minimize_siderbar .sidenav {
     width: 14rem;
     transition-duration: 0.2s;
@@ -646,7 +674,6 @@ body.minimize_siderbar .section_one_movieDetail {
 }
 
 
-
 .leftarrow {
     left: -1px;
     z-index: 1;
@@ -890,7 +917,7 @@ body.minimize_siderbar .section_one_movieDetail {
 .section_story {
     width: 85%;
     color: #a9a9a9;
-    line-height: 1.08;
+    /* line-height: 1.08; */
     font-size: 16px;
     letter-spacing: 0px;
     word-spacing: 1px;
@@ -1108,6 +1135,19 @@ body.light .title_span {
 body.light .menu ul li:hover,
 body.light .menu ul li.hovered {
     background: #ffff;
+}
+
+
+body.light .GoogleButton {
+    color: rgb(151 145 145 / 90%);
+    background: #7e7c7c0f;
+
+}
+
+body.light .GoogleButton:hover {
+
+    color: rgba(0, 0, 0, 0.76);
+    background: #7e7e7e0f;
 }
 
 
@@ -2234,6 +2274,11 @@ body.light .msg_episode {
     .dot {
         width: 3px;
         height: 3px;
+    }
+
+
+    .playButtonContainer {
+        flex-direction: column;
     }
 
 
