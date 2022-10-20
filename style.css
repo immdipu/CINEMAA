@@ -149,7 +149,8 @@ body {
 }
 
 .path {
-    fill: #287bff;
+    /* fill: #287bff; */
+    fill: #b3bfd3;
     color: white;
 }
 
@@ -1318,6 +1319,7 @@ body.light .epishodes_card {
     border-radius: 8px;
     box-shadow: rgb(0 0 0 / 1%) 0px 2px 3px 1px, rgb(0 0 0 / 26%) 0px 1px 4px 0px;
     background-color: #1c1e30;
+    max-height: 10rem;
 }
 
 .episode_image {
@@ -1334,7 +1336,16 @@ body.light .epishodes_card {
 
 .playsvg {
     width: 40px;
-    filter: drop-shadow(2px px 4px 6px black);
+    box-shadow: -6px 4px 24px 3px rgba(0, 0, 0, 0.73);
+    border-radius: 50%;
+    background: #2a2a2a69;
+
+}
+
+.playsvg:hover {
+    box-shadow: -6px 4px 24px 14px rgba(0, 0, 0, 0.73);
+    transform: scale(1.1);
+    transition: all .2s ease-in-out;
 }
 
 .episode_detail {
@@ -1350,13 +1361,15 @@ body.light .episode_title {
 }
 
 .episode_title {
-    margin: 13px 0 8px 0px;
+    margin: 8px 0 13px 0px;
 }
 
 .episode_description {
     color: #c9c9c9e0;
     margin: 0 40px 16px 1px;
-    font-size: 14px;
+    font-size: 13px;
+    max-height: 2rem;
+    overflow: hidden;
 }
 
 

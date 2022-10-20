@@ -158,6 +158,11 @@ const CurrEpisode = async (tv_id, currSea, currEpiso) => {
 
 
 
+
+
+
+
+
 const episodefun = function (currepsh) {
     return `<div class="epishodes_card">
     <a href=" https://www.2embed.to/embed/tmdb/tv?id=${fetcid}&s=${currepsh.season_number}&e=${currepsh.episode_number}"><img class="episode_image"
@@ -219,7 +224,7 @@ const timeCon = function (oldtime) {
 
 
 
-
+let newarr = [];
 
 const seasonnumfun = function (seasoncc) {
     EpisodesContainer.innerHTML = " ";
@@ -228,12 +233,13 @@ const seasonnumfun = function (seasoncc) {
         titleoftvshow.innerText = dat.name;
         let numseasons = dat.seasons;
         const currsea = function (seasonNO) {
-            numseasons.forEach(item => {
+            numseasons.forEach(async item => {
                 if (seasonNO == item.season_number) {
                     currentSeason.innerText = `Season ${seasonNO}`;
                     let numOfEpisodes = item.episode_count;
                     for (i = 1; i < numOfEpisodes + 1; i++) {
-                        CurrEpisode(fetcid, seasonNO, i);
+                        await CurrEpisode(fetcid, seasonNO, i);
+
 
                     }
                 }
