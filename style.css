@@ -948,6 +948,41 @@ body.minimize_siderbar .section_one_movieDetail {
 
 
 
+
+.movie_title:hover {
+    text-overflow: initial;
+    overflow: visible;
+    font-size: 15px;
+    font-weight: 500;
+    width: fit-content;
+    z-index: 999;
+    position: relative;
+    border-radius: 5px;
+    transition: all .2s ease-in-out;
+    padding: 0px 15px 0px 4px;
+    background: #151620;
+    transform: scale(1.04);
+    cursor: pointer;
+}
+
+
+.Now_playing_movies:has(.movie_title:hover) {
+    z-index: 1;
+}
+
+.current_popular_movies:has(.movie_title:hover) {
+    z-index: 1;
+}
+
+.Top_rated_movies:has(.movie_title:hover) {
+    z-index: 1;
+}
+
+
+
+
+
+
 /* Light mode*/
 
 body.light .nav_paremt_conatainer {
@@ -1166,6 +1201,9 @@ body.light .GoogleButton:hover {
 }
 
 
+body.light .movie_title:hover {
+    background-color: whitesmoke;
+}
 
 .playLink {
     text-decoration: none;
