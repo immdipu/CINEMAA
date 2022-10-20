@@ -934,6 +934,20 @@ body.minimize_siderbar .section_one_movieDetail {
 
 
 
+.unreleased_image {
+
+    transform: scale(1.3);
+    opacity: 0.6
+}
+
+.unreleased_link {
+    height: 7rem;
+    overflow-y: clip;
+    border-radius: 7px;
+}
+
+
+
 /* Light mode*/
 
 body.light .nav_paremt_conatainer {
@@ -2294,7 +2308,10 @@ body.light .msg_episode {
         flex-direction: column;
     }
 
+    .unreleased_link {
+        height: 5rem;
 
+    }
 }
 
 @media (max-width:445px) {
@@ -2740,5 +2757,3 @@ body.light .paginationBtn {
     height: min-content;
     flex-wrap: wrap;
 }
-
-.linee {}
