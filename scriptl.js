@@ -14,39 +14,40 @@ const sidenav = document.querySelector(".sidenav");
 const alertMsg = document.querySelector(".alertMsg");
 const okayBtn = document.querySelector(".okaybtn");
 const searchbox = document.querySelector(".search");
-const currentPopularMoviesDiv = document.querySelector(".current_popular_movies_div");
+const currentPopularMoviesDiv = document.querySelector(
+    ".current_popular_movies_div"
+);
 const TopRatedMoviesDiv = document.querySelector(".Top_rated_movies_div");
 const menuulLI = document.querySelectorAll(".menu_ul li");
 
-menuulLI.forEach(item => {
-    item.addEventListener('click', function () {
-        menuulLI.forEach(i => i.classList.remove('hovered'))
-        item.classList.add('hovered');
-    })
-
-})
+menuulLI.forEach((item) => {
+    item.addEventListener("click", function () {
+        menuulLI.forEach((i) => i.classList.remove("hovered"));
+        item.classList.add("hovered");
+    });
+});
 
 lightDarkmode.addEventListener("click", function () {
     document.body.classList.toggle("light");
 
     if (document.body.classList.contains(`light`)) {
-        localStorage.setItem(`theme`, `light`)
+        localStorage.setItem(`theme`, `light`);
     } else {
         localStorage.setItem(`theme`, `dark`);
     }
 });
 
 function settheme() {
-    let currtheme = localStorage.getItem('theme');
+    let currtheme = localStorage.getItem("theme");
 
-    if (currtheme == 'light') {
+    if (currtheme == "light") {
         document.body.classList.add("light");
     } else {
         document.body.classList.remove("light");
     }
 }
 
-settheme()
+settheme();
 
 arrowLeft.addEventListener("click", function () {
     document.body.classList.remove("minimize_siderbar");
@@ -77,7 +78,6 @@ const NowPlaying = async () => {
     return NowPlayingmovies;
 };
 
-
 const popularnow = async () => {
     const res = await fetch(
         `https://api.themoviedb.org/3/movie/popular?api_key=${myApi}&language=en-US&page=1`
@@ -85,7 +85,7 @@ const popularnow = async () => {
     const data = await res.json();
     const popularnowmovies = data.results;
     return popularnowmovies;
-}
+};
 const Toprated = async () => {
     const res = await fetch(
         `https://api.themoviedb.org/3/movie/top_rated?api_key=${myApi}&language=en-US&page=1`
@@ -94,14 +94,14 @@ const Toprated = async () => {
 
     const Topratedmovies = data.results;
     return Topratedmovies;
-}
+};
 
 const NowPlayingfun = (movie) => {
     let url = "./movieDetail.html?id=" + encodeURIComponent(movie.id);
     return `<div class="Now_playing_movies" >
     <a class="posterlink" href=${url}> <img class="poster" data-id="${movie.id
-        }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" loading="lazy" alt="${movie.title
-        }"></a>
+        }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path
+        }" loading="lazy" alt="${movie.title}"></a>
          <p class="movie_title">${movie.title}</p>
          <div class="date_rating">
              <p class="date">${dateFormatter(
@@ -122,8 +122,8 @@ const currpopularfun = (movie) => {
     let url = "./movieDetail.html?id=" + encodeURIComponent(movie.id);
     return `<div class="current_popular_movies" >
     <a class="posterlink" href=${url}> <img class="poster" data-id="${movie.id
-        }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" loading="lazy" alt="${movie.title
-        }"></a>
+        }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path
+        }" loading="lazy" alt="${movie.title}"></a>
          <p class="movie_title">${movie.title}</p>
          <div class="date_rating">
              <p class="date">${dateFormatter(
@@ -143,8 +143,8 @@ const topratedmoviesfun = (movie) => {
     let url = "./movieDetail.html?id=" + encodeURIComponent(movie.id);
     return `<div class="Top_rated_movies" >
     <a class="posterlink" href=${url}> <img class="poster" data-id="${movie.id
-        }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" loading="lazy" alt="${movie.title
-        }"></a>
+        }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path
+        }" loading="lazy" alt="${movie.title}"></a>
          <p class="movie_title">${movie.title}</p>
          <div class="date_rating">
              <p class="date">${dateFormatter(
@@ -180,19 +180,19 @@ NowPlaying().then((movies) => {
     );
 });
 
-
 popularnow().then((movies) => {
     movies.forEach((moviee) => {
         const htmll = currpopularfun(moviee);
         currentPopularMoviesDiv.insertAdjacentHTML("beforeend", htmll);
     });
 
-    const current_popular_movies = document.querySelectorAll(".current_popular_movies");
+    const current_popular_movies = document.querySelectorAll(
+        ".current_popular_movies"
+    );
     current_popular_movies.forEach(
         (ele, i) => (ele.style.transform = `TranslateX(${i * 115}%)`)
     );
 });
-
 
 Toprated().then((movies) => {
     movies.forEach((moviee) => {
@@ -206,56 +206,50 @@ Toprated().then((movies) => {
     );
 });
 
+leftArrow.forEach((item) =>
+    item.addEventListener("click", function () {
+        if (item.parentElement.id == "nowplaying") {
+            Sidescroll(NowPlayingMoviesDiv, "left", 2, 500, 15);
+        }
 
+        if (item.parentElement.id == "Trendingmovies") {
+            Sidescroll(currentPopularMoviesDiv, "left", 2, 500, 15);
+        }
+        if (item.parentElement.id == "toprated") {
+            Sidescroll(TopRatedMoviesDiv, "left", 2, 500, 15);
+        }
+    })
+);
 
-leftArrow.forEach(item => item.addEventListener('click', function () {
-    if (item.parentElement.id == 'nowplaying') {
-        Sidescroll(NowPlayingMoviesDiv, 'left', 2, 500, 15)
-    }
+rightarrow.forEach((item) =>
+    item.addEventListener("click", function () {
+        if (item.parentElement.id == "nowplaying") {
+            Sidescroll(NowPlayingMoviesDiv, "right", 2, 500, 15);
+        }
 
-    if (item.parentElement.id == 'Trendingmovies') {
-        Sidescroll(currentPopularMoviesDiv, 'left', 2, 500, 15)
-    }
-    if (item.parentElement.id == 'toprated') {
-        Sidescroll(TopRatedMoviesDiv, 'left', 2, 500, 15)
-    }
-}))
-
-rightarrow.forEach(item => item.addEventListener('click', function () {
-    if (item.parentElement.id == 'nowplaying') {
-        Sidescroll(NowPlayingMoviesDiv, 'right', 2, 500, 15)
-    }
-
-    if (item.parentElement.id == 'Trendingmovies') {
-        Sidescroll(currentPopularMoviesDiv, 'right', 2, 500, 15)
-    }
-    if (item.parentElement.id == 'toprated') {
-        Sidescroll(TopRatedMoviesDiv, 'right', 2, 500, 15)
-    }
-}))
-
-
-
+        if (item.parentElement.id == "Trendingmovies") {
+            Sidescroll(currentPopularMoviesDiv, "right", 2, 500, 15);
+        }
+        if (item.parentElement.id == "toprated") {
+            Sidescroll(TopRatedMoviesDiv, "right", 2, 500, 15);
+        }
+    })
+);
 
 const Sidescroll = function (element, direction, speed, distance, step) {
-    scrollAmount = 0
+    scrollAmount = 0;
     let slideTimer = setInterval(function () {
-        if (direction == 'left') {
+        if (direction == "left") {
             element.scrollLeft -= step;
-        }
-        else {
+        } else {
             element.scrollLeft += step;
         }
         scrollAmount += step;
         if (scrollAmount >= distance) {
-            window.clearInterval(slideTimer)
+            window.clearInterval(slideTimer);
         }
     }, speed);
-
-}
-
-
-
+};
 
 //  ALERT MESSAGE AT THE BEGINING//
 /*
@@ -266,17 +260,13 @@ const hideAlert = function () {
 okayBtn.addEventListener('click', hideAlert)*/
 
 window.onload = function () {
-    if (document.title.includes('Home')) {
-        menuulLI[0].classList.add('hovered');
+    if (document.title.includes("Home")) {
+        menuulLI[0].classList.add("hovered");
     }
     /* alertMsg.classList.add('alertactive');
-     setTimeout(hideAlert, 2000)*/
-}
+       setTimeout(hideAlert, 2000)*/
+};
 
-
-searchbox.addEventListener('click', function () {
-    location.replace("./search.html")
-})
-
-
-
+searchbox.addEventListener("click", function () {
+    location.replace("./search.html");
+});
