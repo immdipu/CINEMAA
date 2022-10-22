@@ -114,6 +114,15 @@ const dateFormatter = function (date) {
 };
 
 
+const averagVoteformat = function (receivedVote) {
+    let currVote = receivedVote.toString();
+    const newVote = currVote.slice(0, 3);
+    return newVote;
+};
+
+
+
+
 
 const personMoivesfun = (movie) => {
     let url = "./movieDetail.html?id=" + encodeURIComponent(movie.id);
@@ -124,7 +133,7 @@ const personMoivesfun = (movie) => {
          <p class="movie_title movie_title_search" >${movie.title}</p>
          <div class="date_rating">
              <p class="date date_search">${dateFormatter(movie.release_date)}</p><span class="dot dot2"></span>
-             <p class="rating rating_search">${movie.vote_average
+             <p class="rating rating_search">${averagVoteformat(movie.vote_average)
         }<span><svg xmlns="http://www.w3.org/2000/svg" width="10"
                          height="10" fill="Yellow" class="star bi-star-fill" viewBox="0 0 16 16">
                          <path
@@ -145,7 +154,7 @@ const personTvShowfun = (movie) => {
          <p class="movie_title movie_title_search" >${movie.name}</p>
          <div class="date_rating tvshows_date_rating">
              <p class="date date_search">${dateFormatter(movie.first_air_date)}</p><span class="dot dot2 recommendTvShow_date_dot"></span>
-             <p class="rating rating_search">${movie.vote_average
+             <p class="rating rating_search">${averagVoteformat(movie.vote_average)
         }<span><svg xmlns="http://www.w3.org/2000/svg" width="10"
                          height="10" fill="Yellow" class="star bi-star-fill" viewBox="0 0 16 16">
                          <path
