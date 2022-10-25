@@ -180,6 +180,9 @@ const personMOvies = async (id) => {
 };
 
 
+
+
+
 let pp = "";
 
 let url = document.location.href;
@@ -189,6 +192,7 @@ window.onload = function () {
     personMOvies(fetcid).then((dat) => {
         profilep(dat);
         let moviecrdits = dat.combined_credits.cast;
+        moviecrdits.sort((cast1, cast2) => cast2.vote_average - cast1.vote_average);
         moviecrdits.forEach(item => {
             if (item.media_type == "tv" && item.poster_path != null) {
                 htmll += personTvShowfun(item);
