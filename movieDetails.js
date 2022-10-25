@@ -25,13 +25,12 @@ const recommendationMoviesDiv = document.querySelector(".recommendation_movies_d
 const SimilarMoviesDiv = document.querySelector(".Similar_movies_div");
 const Casdiv = document.querySelector(".Casdiv");
 const preLoader = document.querySelector(".preloader");
+const Trailer_section = document.querySelector(".Trailer_section");
 
 
 window.addEventListener('load', function () {
     preLoader.style.display = 'none';
 })
-
-
 
 
 const Castfun = (castee) => {
@@ -49,14 +48,19 @@ const Castfun = (castee) => {
          </div>`;
 };
 
+const Trailerfunc = function (id) {
+    return `<iframe class="youtubePlayer" src="https://autoembed.to/trailer/movie/${id}" width="100%" height="100%" loading="lazy" frameborder="0" allowfullscreen></iframe>`
+}
+
 
 
 
 let url = document.location.href;
 let fetcid = url.slice(url.indexOf("=") + 1);
 const movieLoad = function () {
+    let trailerHtml = Trailerfunc(fetcid);
+    Trailer_section.innerHTML = trailerHtml;
     CurrMovie(fetcid).then((dat) => {
-
         let htm = "";
         htm = html2(dat);
         movieDetails.innerHTML = htm;
@@ -64,7 +68,6 @@ const movieLoad = function () {
         posterBBig.innerHTML = BigPoster;
         sectionStory.textContent = dat.overview;
         let castarr = dat.credits.cast;
-        // console.log(castarr);
         if (castarr.length > 10) {
             let NewCastarr = castarr.slice(0, 10);
             NewCastarr.forEach(item => {

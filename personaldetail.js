@@ -20,6 +20,8 @@ const biography = document.querySelector(".biography");
 const birthPlace = document.querySelector(".birth_place");
 const DoB = document.querySelector(".DoB");
 const searchResultDiv = document.querySelector(".search_result_div");
+const CategoriesContainer = document.querySelector(".CategoriesContainer");
+const categories_btn = document.querySelectorAll(".categories_btn");
 
 
 
@@ -187,26 +189,50 @@ let pp = "";
 
 let url = document.location.href;
 let fetcid = url.slice(url.indexOf("=") + 1);
-window.onload = function () {
+function personallcat() {
     let htmll = " "
     personMOvies(fetcid).then((dat) => {
         profilep(dat);
         let moviecrdits = dat.combined_credits.cast;
         moviecrdits.sort((cast1, cast2) => cast2.vote_average - cast1.vote_average);
-        moviecrdits.forEach(item => {
-            if (item.media_type == "tv" && item.poster_path != null) {
-                htmll += personTvShowfun(item);
-            }
-            if (item.media_type == "movie" && item.release_date !== "" && item.poster_path !== null) {
-                htmll += personMoivesfun(item);
-            }
-            searchResultDiv.innerHTML = htmll;
-        });
+
+        if (CategoriesContainer.textContent == "All Categories") {
+            moviecrdits.forEach(item => {
+                if (item.media_type == "tv" && item.poster_path != null) {
+                    htmll += personTvShowfun(item);
+                }
+                if (item.media_type == "movie" && item.release_date !== "" && item.poster_path !== null) {
+                    htmll += personMoivesfun(item);
+                }
+                searchResultDiv.innerHTML = htmll;
+            });
+        }
+
+        else if (CategoriesContainer.textContent == "Movies Only") {
+            moviecrdits.forEach(item => {
+                if (item.media_type == "movie" && item.release_date !== "" && item.poster_path !== null) {
+                    htmll += personMoivesfun(item);
+                }
+                searchResultDiv.innerHTML = htmll;
+            });
+        }
+
+        else if (CategoriesContainer.textContent == "TV Only") {
+            moviecrdits.forEach(item => {
+                if (item.media_type == "tv" && item.poster_path != null) {
+                    htmll += personTvShowfun(item);
+                }
+                searchResultDiv.innerHTML = htmll;
+            });
+        }
+
+
+
 
     });
 
 };
-
+personallcat();
 
 
 
@@ -218,4 +244,13 @@ const profilep = function (person) {
     let pp = `<img class="pp" src="https://image.tmdb.org/t/p/w500/${person.profile_path}" alt="">`
     profilePictureContainer.innerHTML = pp;
 
-} 
+}
+
+categories_btn[0].classList.add('categories_btn_active');
+
+categories_btn.forEach(item => item.addEventListener('click', function () {
+    categories_btn.forEach(i => i.classList.remove('categories_btn_active'));
+    item.classList.add('categories_btn_active');
+    CategoriesContainer.textContent = item.textContent;
+    personallcat();
+}))

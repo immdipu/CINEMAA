@@ -25,6 +25,7 @@ const recommendationMoviesDiv = document.querySelector(".recommendation_movies_d
 const SimilarMoviesDiv = document.querySelector(".Similar_movies_div");
 const Casdiv = document.querySelector(".Casdiv");
 const menuulLI = document.querySelectorAll(".menu_ul li");
+const Trailer_section = document.querySelector(".Trailer_section");
 
 
 
@@ -194,6 +195,13 @@ const Castfun = (castee) => {
 
 
 
+const Trailerfunc = function (id) {
+    return `<iframe class="youtubePlayer" src="https://autoembed.to/trailer/tv/${id}" width="100%" height="100%" loading="lazy"  frameborder="0" allowfullscreen></iframe>`
+}
+
+
+
+
 
 
 
@@ -253,8 +261,10 @@ const CurrTvshow = async (id) => {
 
 let url = document.location.href;
 let fetcid = url.slice(url.indexOf("=") + 1);
-window.onload = function () {
+function tvload() {
     CurrTvshow(fetcid).then((dat) => {
+        let trailerHtml = Trailerfunc(fetcid);
+        Trailer_section.innerHTML = trailerHtml;
         let htm = "";
         htm = html2(dat);
         movieDetails.innerHTML = htm;
@@ -303,6 +313,7 @@ window.onload = function () {
 
 
 };
+tvload();
 
 
 const recommTvshowFun = (mov) => {

@@ -1280,7 +1280,7 @@ body.light .movie_title:hover {
 }
 
 .person_movie_con {
-    margin: 12px 35px 30px 84px;
+    margin: 12px 0px 30px 84px;
 }
 
 .section_twoo {
@@ -1326,6 +1326,112 @@ body.light .movie_title:hover {
     color: white;
 }
 
+
+
+
+
+.pi_header {
+    display: flex;
+    justify-content: space-between;
+    width: 96%;
+
+}
+
+
+.CategoriesContainer {
+    border: 1px solid #212546;
+    width: fit-content;
+    padding: 4px 33px 4px 11px;
+    font-size: small;
+    position: relative;
+    border-radius: 5px 5px 5px 5px;
+    width: 155px;
+    cursor: pointer;
+    background: #191724;
+    font-weight: 500;
+}
+
+
+
+.CategoriesContainer::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-top-color: #bfc5d1;
+    top: 50%;
+    margin-top: -3px;
+    right: 9px;
+}
+
+
+
+
+.CategoriesContainer_ul {
+    border: 1px solid #212546;
+    background: #191724;
+    position: absolute;
+    overflow: hidden;
+    width: 155px;
+    border-radius: 0px 0px 5px 5px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+    visibility: hidden;
+    cursor: pointer;
+    height: 0px;
+    transition-timing-function: ease-in;
+    transition-duration: 0.2s;
+}
+
+
+.CategoriesContainer_div:hover .CategoriesContainer_ul {
+    visibility: visible;
+    height: 92px;
+}
+
+.CategoriesContainer_div:hover .CategoriesContainer {
+    border-radius: 5px 5px 0px 0px;
+}
+
+
+.CategoriesContainer_ul li {
+    list-style: none;
+    font-size: small;
+    padding: 6px 0px 6px 11px;
+    font-weight: 100;
+    border-color: #6c6b6b;
+
+}
+
+.CategoriesContainer_ul li:not(:last-child) {
+    border-width: 0 0px 1px 0px;
+    border-style: dotted;
+}
+
+.CategoriesContainer_ul li:hover {
+    color: #6ca0ff;
+}
+
+
+
+.body.light .CategoriesContainer_ul {
+    background: #f5f5f5;
+    border: 1px solid #c3c3c3;
+}
+
+.body.light .CategoriesContainer {
+    background: #f5f5f5;
+    border: 1px solid #c3c3c3;
+}
+
+.categories_btn_active {
+    color: #6ca0ff;
+}
+
+.body.light .CategoriesContainer::after {
+    border-top-color: #686868;
+}
 
 body.light .season {
     background: white;
@@ -1718,6 +1824,19 @@ body.light .msg_episode {
     width: 90%;
 }
 
+
+
+
+.youtubePlayer {
+    margin: auto;
+    width: 69%;
+    border-radius: 8px;
+}
+
+.Trailer_section {
+    height: 31rem;
+    display: flex;
+}
 
 
 
@@ -2350,6 +2469,21 @@ body.light .msg_episode {
         height: 5rem;
 
     }
+
+
+    .youtubePlayer {
+        margin: auto;
+        width: 100%;
+        border-radius: 0px;
+    }
+
+    .Trailer_section {
+        height: 20rem;
+        display: flex;
+    }
+
+
+
 }
 
 @media (max-width:445px) {
@@ -2368,6 +2502,26 @@ body.light .msg_episode {
         position: absolute;
         transform: translateX(39px) translateY(-63px);
     }
+
+    .CategoriesContainer {
+        border: 1px solid #212546;
+        width: fit-content;
+        padding: 4px 23px 4px 5px;
+        font-size: 11px;
+        position: relative;
+        border-radius: 5px 5px 5px 5px;
+        width: 120px;
+        cursor: pointer;
+        background: #191724;
+        font-weight: 500;
+    }
+
+    .CategoriesContainer_ul {
+        padding: 0;
+        font-size: 11px;
+        width: 120px;
+    }
+
 }
 
 @media (max-width:380px) {
