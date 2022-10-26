@@ -186,6 +186,8 @@ NextBtn.addEventListener('click', function () {
             btnactive(intialPage, totalpage)
         }
     })
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 })
 
 previousBtn.addEventListener('click', function () {
@@ -197,6 +199,8 @@ previousBtn.addEventListener('click', function () {
             btnactive(intialPage, totalpage)
         }
     })
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 })
 
 
