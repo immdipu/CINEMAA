@@ -139,7 +139,6 @@ lightDarkmode.addEventListener("click", function () {
 
 function settheme() {
     let currtheme = localStorage.getItem('theme');
-    console.log(currtheme);
     if (currtheme == 'light') {
         document.body.classList.add("light");
     } else {
@@ -232,7 +231,6 @@ const NowPlayingfun = (movie) => {
 const dateFormatter = function (date) {
     let currdate = date;
     const newDate = currdate.slice(0, 4);
-    console.log(newDate);
     return newDate;
 
 };
