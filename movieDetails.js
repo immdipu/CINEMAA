@@ -26,6 +26,7 @@ const SimilarMoviesDiv = document.querySelector(".Similar_movies_div");
 const Casdiv = document.querySelector(".Casdiv");
 const preLoader = document.querySelector(".preloader");
 const Trailer_section = document.querySelector(".Trailer_section");
+const reccomendation = document.querySelector(".reccomendation");
 
 
 window.addEventListener('load', function () {
@@ -395,6 +396,7 @@ const recomMOvie = async (id) => {
     );
     const data = await res.json();
     const recommendationMovies = data.results;
+
     return recommendationMovies;
 };
 
@@ -461,15 +463,22 @@ const simimarMoviefun = (movie) => {
 
 
 recomMOvie(fetcid).then((movies) => {
-    movies.forEach((moviee) => {
-        const html3 = recommMovieFun(moviee);
-        recommendationMoviesDiv.insertAdjacentHTML("beforeend", html3);
-    });
+    if (movies.length == 0) {
+        reccomendation.style.display = "none"
+    }
+    else {
 
-    const recommenMovies = document.querySelectorAll(".recommenMovies");
-    recommenMovies.forEach(
-        (ele, i) => (ele.style.transform = `TranslateX(${i * 115}%)`)
-    );
+        movies.forEach((moviee) => {
+
+            const html3 = recommMovieFun(moviee);
+            recommendationMoviesDiv.insertAdjacentHTML("beforeend", html3);
+        });
+
+        const recommenMovies = document.querySelectorAll(".recommenMovies");
+        recommenMovies.forEach(
+            (ele, i) => (ele.style.transform = `TranslateX(${i * 115}%)`)
+        );
+    }
 });
 
 
