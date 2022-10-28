@@ -23,6 +23,7 @@ const trending_div_container = document.querySelector('.trending_div_container')
 const trending_left_btn = document.querySelector('.trending_left_btn');
 const trending_right_btn = document.querySelector('.trending_right_btn');
 const navContainer = document.querySelector('.navContainer');
+const trending_container = document.querySelector('.trending_container');
 
 
 
@@ -192,7 +193,7 @@ const trendinghtml = function (data) {
             src="https://image.tmdb.org/t/p/original//${data.backdrop_path}"
             alt="${data.title}">
         <div class="trending_details">
-            <h1 class="Trending_heading">Trending <span class="Trending_categ">${data.media_type}</span>
+            <h1 class="Trending_heading">Trending <span class="Trending_categ">${data.media_type == "movie" ? "Movie" : "TV show"}</span>
             </h1>
             <h3 class="trending_title">${data.media_type == "movie" ? data.title : data.name}</h3>
 
@@ -300,10 +301,20 @@ TodayTrending().then((trends) => {
 
     trending_left_btn.addEventListener("click", previousSlide);
 
-    setInterval(function () {
+    timer = setInterval(function () {
         nextSlide()
-    }, 3000);
+    }, 4000);
 
+    function myStopFunction() {
+        clearTimeout(timer);
+    }
+
+    trending_container.addEventListener('mouseover', myStopFunction);
+    trending_container.addEventListener('mouseout', function () {
+        timer = setInterval(function () {
+            nextSlide()
+        }, 4000);
+    });
 
 });
 
