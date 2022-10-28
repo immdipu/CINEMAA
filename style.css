@@ -1083,6 +1083,9 @@ body.minimize_siderbar .section_one_movieDetail {
     color: #ffffff;
     letter-spacing: 2px;
     font-size: 22px;
+    font-size: initial;
+    font-weight: 600;
+
 }
 
 .trending_title {
