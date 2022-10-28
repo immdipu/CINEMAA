@@ -19,6 +19,13 @@ const currentPopularMoviesDiv = document.querySelector(
 );
 const TopRatedMoviesDiv = document.querySelector(".Top_rated_movies_div");
 const menuulLI = document.querySelectorAll(".menu_ul li");
+const trending_div_container = document.querySelector('.trending_div_container')
+const trending_left_btn = document.querySelector('.trending_left_btn');
+const trending_right_btn = document.querySelector('.trending_right_btn');
+const navContainer = document.querySelector('.navContainer');
+
+
+
 
 menuulLI.forEach((item) => {
     item.addEventListener("click", function () {
@@ -77,6 +84,22 @@ const NowPlaying = async () => {
     const NowPlayingmovies = data.results;
     return NowPlayingmovies;
 };
+
+
+const TodayTrending = async () => {
+    const res = await fetch(
+        "https://api.themoviedb.org/3/trending/all/day?api_key=6b2dec73b6697866a50cdaef60ccffcb"
+    );
+    const data = await res.json();
+    const trendingtoday = data.results;
+    console.log(trendingtoday);
+    return trendingtoday;
+};
+
+
+
+
+
 
 const popularnow = async () => {
     const res = await fetch(
@@ -161,6 +184,35 @@ const topratedmoviesfun = (movie) => {
          </div>`;
 };
 
+
+const trendinghtml = function (data) {
+    return `<div class="trending_div slides">
+    <a class="trending_poster" href="">
+        <img class="trending_poster"
+            src="https://image.tmdb.org/t/p/original//${data.backdrop_path}"
+            alt="${data.title}">
+        <div class="trending_details">
+            <h1 class="Trending_heading">Trending <span class="Trending_categ">${data.media_type}</span>
+            </h1>
+            <h3 class="trending_title">${data.media_type == "movie" ? data.title : data.name}</h3>
+
+        </div>
+    </a>
+
+</div>`
+}
+
+
+
+
+
+
+
+
+
+
+
+
 // FORMATA DATE
 const dateFormatter = function (date) {
     let currdate = date;
@@ -205,6 +257,83 @@ Toprated().then((movies) => {
         (ele, i) => (ele.style.transform = `TranslateX(${i * 115}%)`)
     );
 });
+
+
+TodayTrending().then((trends) => {
+    trends.forEach((trend) => {
+        const html = trendinghtml(trend);
+        trending_div_container.insertAdjacentHTML("beforeend", html);
+    })
+    const slide = document.querySelectorAll(".slides");
+    slide.forEach((item, i) => (item.style.transform = `translateX(${100 * i}%)`));
+
+
+    let currentSlide = 0;
+    maxSlide = slide.length;
+
+    const goToSlide = function (slides) {
+        slide.forEach(
+            (item, i) => (item.style.transform = `translateX(${100 * (i - slides)}%)`)
+        );
+    };
+
+    const nextSlide = function () {
+        if (currentSlide === maxSlide - 1) {
+            currentSlide = 0;
+        } else {
+            currentSlide++;
+        }
+        goToSlide(currentSlide);
+
+    };
+
+    const previousSlide = function () {
+        if (currentSlide === 0) {
+            currentSlide = maxSlide - 1;
+        } else {
+            currentSlide--;
+        }
+        goToSlide(currentSlide);
+    };
+
+    trending_right_btn.addEventListener("click", nextSlide);
+
+    trending_left_btn.addEventListener("click", previousSlide);
+
+    setInterval(function () {
+        nextSlide()
+    }, 3000);
+
+
+});
+
+window.addEventListener("scroll", function () {
+    let intiCon = trending_div_container.getBoundingClientRect();
+    if (window.scrollY > intiCon.height - 150) {
+        navContainer.classList.add("bgadd");
+    } else {
+        navContainer.classList.remove("bgadd");
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 leftArrow.forEach((item) =>
     item.addEventListener("click", function () {
@@ -270,3 +399,6 @@ window.onload = function () {
 searchbox.addEventListener("click", function () {
     location.replace("./search.html");
 });
+
+
+
