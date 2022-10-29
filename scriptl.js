@@ -93,7 +93,6 @@ const TodayTrending = async () => {
     );
     const data = await res.json();
     const trendingtoday = data.results;
-    console.log(trendingtoday);
     return trendingtoday;
 };
 
@@ -312,7 +311,6 @@ TodayTrending().then((trends) => {
     }, 5000);
 
     function myStopFunction() {
-        console.log('Hello');
         clearTimeout(timer);
     }
 

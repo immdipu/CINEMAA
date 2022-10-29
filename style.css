@@ -1055,9 +1055,10 @@ body.minimize_siderbar .Home_header_container {
 
 .slides {
     position: absolute;
-    transition-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
-    transition-duration: 2s;
+    transition-timing-function: linear;
+    transition-duration: 0.5s;
 }
+
 
 .trending_arrow {
     height: 2rem;
@@ -1081,6 +1082,7 @@ body.minimize_siderbar .Home_header_container {
     filter: drop-shadow(2px 0px 1px black);
     position: absolute;
     bottom: 5vw;
+    z-index: 1;
 
 }
 
@@ -3188,4 +3190,8 @@ body.light .paginationBtn {
     list-style: none;
     height: min-content;
     flex-wrap: wrap;
+}
+
+.trending_details:hover .trending_title {
+    color: #9296b9;
 }
