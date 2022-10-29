@@ -1093,6 +1093,7 @@ body.minimize_siderbar .Home_header_container {
     opacity: .7;
     font-weight: 100;
     font-size: 13px;
+    margin-bottom: 5px;
 }
 
 .trending_title {
@@ -2709,6 +2710,11 @@ body.light .msg_episode {
     .trending_title {
         font-size: 13px;
     }
+
+    .Trending_heading {
+        margin-bottom: 10px;
+    }
+
 
 }
 
