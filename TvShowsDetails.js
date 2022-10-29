@@ -266,35 +266,55 @@ function tvload() {
         let trailerHtml = Trailerfunc(fetcid);
         Trailer_section.innerHTML = trailerHtml;
         let htm = "";
+        console.log(dat);
         htm = html2(dat);
         movieDetails.innerHTML = htm;
         let BigPoster = Bigposter(dat);
         posterBBig.innerHTML = BigPoster;
         sectionStory.textContent = dat.overview;
         let castarr = dat.credits.cast;
-        castarr.forEach(item => {
-            if (item.profile_path !== null) {
-                const castehtml = Castfun(item);
-                Casdiv.insertAdjacentHTML("beforeend", castehtml);
-            }
-        })
-        const castdiv = document.querySelectorAll(".castdiv");
-        castdiv.forEach(
-            (ele, i) => (ele.style.transform = `TranslateX(${i * 115}%)`)
-        );
+
+
+
+        // CAST FOR TV SHOWS 
+
+        if (castarr.length == 0) {
+            document.querySelector('.movie_caste_container').style.display = "none"
+        }
+        else {
+            castarr.forEach(item => {
+                if (item.profile_path !== null) {
+                    const castehtml = Castfun(item);
+                    Casdiv.insertAdjacentHTML("beforeend", castehtml);
+                }
+            })
+            const castdiv = document.querySelectorAll(".castdiv");
+            castdiv.forEach(
+                (ele, i) => (ele.style.transform = `TranslateX(${i * 115}%)`)
+            );
+        }
+
+
+
 
         // forEach to call recommendation of tv shows
 
         let recommarr = dat.recommendations.results;
-        recommarr.forEach(item => {
-            const html3 = recommTvshowFun(item);
-            recommendationMoviesDiv.insertAdjacentHTML("beforeend", html3);
-        });
+        if (dat.recommendations.results.length == 0) {
+            document.getElementById('recommenn').style.display = "none"
+        }
+        else {
+            recommarr.forEach(item => {
+                const html3 = recommTvshowFun(item);
+                recommendationMoviesDiv.insertAdjacentHTML("beforeend", html3);
+            });
 
-        const recommenMovies = document.querySelectorAll(".recommenMovies");
-        recommenMovies.forEach(
-            (ele, i) => (ele.style.transform = `TranslateX(${i * 115}%)`)
-        );
+            const recommenMovies = document.querySelectorAll(".recommenMovies");
+            recommenMovies.forEach(
+                (ele, i) => (ele.style.transform = `TranslateX(${i * 115}%)`)
+            );
+
+        }
 
         // function to get similar to tv shows
 
