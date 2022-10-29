@@ -198,7 +198,7 @@ const trendinghtml = function (data) {
            
             <div class="trending_child_2"> </div>
         <div class="trending_details">
-            <h1 class="Trending_heading">Trending <span class="Trending_categ">${data.media_type == "movie" ? "Movie" : "TV show"}</span>
+            <h1 class="Trending_heading">Trending <span class="Trending_categ">${data.media_type == "movie" ? "Movie" : "TV Show"}</span>
             </h1>
             <h3 class="trending_title">${data.media_type == "movie" ? data.title : data.name}</h3>
 

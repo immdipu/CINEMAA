@@ -1087,13 +1087,12 @@ body.minimize_siderbar .Home_header_container {
 }
 
 .Trending_heading {
-    font-family: 'Pacifico', cursive;
-    color: #ffffff;
-    letter-spacing: 2px;
-    font-size: 22px;
-    font-size: initial;
-    font-weight: 600;
-
+    color: #ffff00d1;
+    background-image: linear-gradient(90deg, rgba(207, 207, 207, 0) 0%, hsla(234, 31%, 12%, 1) 50%, rgba(72, 73, 86, 0) 97%);
+    font-family: monospace;
+    opacity: .7;
+    font-weight: 100;
+    font-size: 13px;
 }
 
 .trending_title {
@@ -1102,10 +1101,6 @@ body.minimize_siderbar .Home_header_container {
     font-family: cursive;
 }
 
-.Trending_categ {
-    font-size: 15px;
-    color: white;
-}
 
 
 
