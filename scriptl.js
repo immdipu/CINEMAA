@@ -187,11 +187,17 @@ const topratedmoviesfun = (movie) => {
 
 
 const trendinghtml = function (data) {
+    let url = "./movieDetail.html?id=" + encodeURIComponent(data.id);
+    let url2 = "./TvShowsDetails.html?id=" + encodeURIComponent(data.id);
     return `<div class="trending_div slides">
-    <a class="trending_poster" href="">
+    <div class="trending_child"> </div>
+    <a class="trending_poster" href="${data.media_type == "movie" ? url : url2}"  data-id="${data.id
+        }">
         <img class="trending_poster"
             src="https://image.tmdb.org/t/p/original//${data.backdrop_path}"
             alt="${data.title}">
+           
+            <div class="trending_child_2"> </div>
         <div class="trending_details">
             <h1 class="Trending_heading">Trending <span class="Trending_categ">${data.media_type == "movie" ? "Movie" : "TV show"}</span>
             </h1>
@@ -303,17 +309,18 @@ TodayTrending().then((trends) => {
 
     timer = setInterval(function () {
         nextSlide()
-    }, 4000);
+    }, 5000);
 
     function myStopFunction() {
+        console.log('Hello');
         clearTimeout(timer);
     }
 
-    trending_container.addEventListener('mouseover', myStopFunction);
-    trending_container.addEventListener('mouseout', function () {
+    document.querySelector('.trending_child_2').addEventListener('mouseover', myStopFunction);
+    document.querySelector('.trending_child_2').addEventListener('mouseout', function () {
         timer = setInterval(function () {
             nextSlide()
-        }, 4000);
+        }, 5000);
     });
 
 });

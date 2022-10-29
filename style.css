@@ -398,16 +398,21 @@ body.minimize_siderbar .section_one_movieDetail {
 
 .Home_header_container {
     display: flex;
-    width: 100%;
+    /* width: 100%; */
     height: 34vw;
     margin: 0;
     position: absolute;
     top: 0;
     right: 0;
     left: 0;
-
+    margin-left: 4rem;
+    transition-duration: 0.3s;
+    transition-timing-function: linear
 }
 
+body.minimize_siderbar .Home_header_container {
+    margin-left: 14rem;
+}
 
 
 
@@ -1003,7 +1008,7 @@ body.minimize_siderbar .section_one_movieDetail {
 .trending_child {
     position: absolute;
     height: inherit;
-    z-index: 1;
+    z-index: 0;
     width: 100%;
     background: hsla(0, 0%, 91%, 1);
     background: radial-gradient(circle, hsla(0, 0%, 91%, 1) 0%, hsla(234, 31%, 12%, 1) 100%);
@@ -1020,7 +1025,7 @@ body.minimize_siderbar .section_one_movieDetail {
     height: 7rem;
     z-index: 1;
     width: inherit;
-    bottom: 0;
+    bottom: -8px;
 }
 
 
@@ -1028,6 +1033,8 @@ body.minimize_siderbar .section_one_movieDetail {
     object-fit: cover;
     height: fit-content;
     width: inherit;
+    display: flex;
+    justify-content: center;
 
 
 }
@@ -1048,8 +1055,8 @@ body.minimize_siderbar .section_one_movieDetail {
 
 .slides {
     position: absolute;
-    transition-timing-function: linear;
-    transition-duration: 0.5s;
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transition-duration: 2s;
 }
 
 .trending_arrow {
@@ -1061,7 +1068,7 @@ body.minimize_siderbar .section_one_movieDetail {
     position: absolute;
     top: 50%;
     z-index: 2;
-    width: 94%;
+    width: 99%;
     display: flex;
     justify-content: space-between;
     cursor: pointer;
@@ -1069,7 +1076,7 @@ body.minimize_siderbar .section_one_movieDetail {
 }
 
 .trending_details {
-    width: 100%;
+    width: fit-content;
     text-align: center;
     filter: drop-shadow(2px 0px 1px black);
     position: absolute;
@@ -2062,7 +2069,8 @@ body.light .msg_episode {
 
     .Trending_arrow_container {
         position: absolute;
-        top: 36%;
+        top: 47%;
+        width: 100%;
     }
 
 
@@ -2697,7 +2705,7 @@ body.light .msg_episode {
     }
 
     .trending_child_2 {
-        bottom: -1px;
+        bottom: -3px;
     }
 
 
