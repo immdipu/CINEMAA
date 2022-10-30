@@ -3196,3 +3196,9 @@ body.light .paginationBtn {
 .trending_details:hover .trending_title {
     color: #9296b9;
 }
+
+
+#bmc-wbtn {
+    width: 55px;
+    height: 55px;
+}
