@@ -59,6 +59,11 @@ body {
     padding: 0 0 0 2px;
     transition-duration: 0.3s;
     transition-timing-function: linear;
+    background-image: url("./resources/D\ moviesand\ tv\ shows\ \(Transparent\ BG\).png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-y: 100%;
 }
 
 
@@ -200,6 +205,8 @@ body.minimize_siderbar .sidenav {
     transition-duration: 0.2s;
     transition-timing-function: linear;
     height: 100%;
+    background-size: 153px;
+    background-position-y: 103%;
 }
 
 body.minimize_siderbar .sidenav_container {
