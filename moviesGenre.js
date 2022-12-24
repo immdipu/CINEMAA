@@ -178,9 +178,12 @@ const searchfun = (movie) => {
   return `<div class="item" >
     <a class="posterlink" href="${url}"> <img class="poster" data-id="${
     movie.id
-  }" src="https://image.tmdb.org/t/p/w500/${movie.poster_path}"
+  }" 
+  src='./resources/D moviesand tv show.png'
+  data-src="https://image.tmdb.org/t/p/w500/${movie.poster_path}"
   loading="lazy" 
-        onerror="this.onerror=null;this.src='./resources/D moviesand tv show.png';"
+  onload="this.src=this.getAttribute('data-src')"
+       
           alt="${movie.title}"></a>
          <p class="movie_title movie_title_search" >${movie.title}</p>
          <div class="date_rating tvshows_date_rating">
