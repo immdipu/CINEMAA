@@ -604,6 +604,7 @@ body.minimize_siderbar .Home_header_container {
     transition-duration: 0.2s;
     transition-timing-function: ease-in-out;
     height: 15rem;
+    object-fit: cover;
 
 }
 
