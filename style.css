@@ -3211,3 +3211,6 @@ body.light .paginationBtn {
     width: 55px;
     height: 55px;
 }
+
+-webkit-tap-highlight-color: transparent;
+/* for removing the highlight */
