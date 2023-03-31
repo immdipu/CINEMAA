@@ -375,19 +375,19 @@ const Sidescroll = function (element, direction, speed, distance, step) {
 };
 
 //  ALERT MESSAGE AT THE BEGINING//
-/*
-const hideAlert = function () {
-    alertMsg.classList.remove('alertactive');
-}
 
-okayBtn.addEventListener('click', hideAlert)*/
+const hideAlert = function () {
+  alertMsg.classList.remove("alertactive");
+};
+
+okayBtn.addEventListener("click", hideAlert);
 
 window.onload = function () {
   if (document.title.includes("Home")) {
     menuulLI[0].classList.add("hovered");
   }
-  /* alertMsg.classList.add('alertactive');
-       setTimeout(hideAlert, 2000)*/
+  alertMsg.classList.add("alertactive");
+  setTimeout(hideAlert, 6000);
 };
 
 searchbox.addEventListener("click", function () {
