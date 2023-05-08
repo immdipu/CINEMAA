@@ -2747,8 +2747,23 @@ body.light .msg_episode {
 }
 
 
+.selladd {
+    color: white;
+    font-size: 14px;
 
+}
 
+.selladd-container {
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: fit-content;
+    background-color: rgba(0, 0, 0, 0.664);
+    display: grid;
+    place-items: center;
+}
 
 
 @media (max-width:445px) {
